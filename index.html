@@ -1,0 +1,1794 @@
+<!doctype html>
+<!--
+  A&R Cerimonial & Assessoria — index.html
+  Design Squad + JavaScript Squad v1.0 | 2025
+
+  Estrutura da Home (12 seções):
+  01. Navegação (sticky, transparente → frosted glass)
+  02. Hero (100vh, foto + overlay + texto animado)
+  03. Manifesto (filosofia da marca + 3 pilares)
+  04. Serviços (4 cards com features)
+  05. Processo (4 etapas — "Como trabalhamos")
+  06. Stats (4 contadores animados)
+  07. Casamento em Destaque (split-screen editorial)
+  08. Sobre / Fundadora (bio + assinatura)
+  09. Galeria Preview (grade assimétrica)
+  10. Depoimentos (slider 3 cards)
+  11. Reconhecimentos / Press (logos de publicações)
+  12. Instagram Strip
+  13. CTA Final (conversão)
+  14. Rodapé (4 colunas)
+
+  Imagens necessárias em /img:
+  hero.jpg, cta-bg.jpg, featured-wedding.jpg, founder.jpg
+  service-cerimonial.jpg, service-assessoria.jpg,
+  service-decoracao.jpg, service-destino.jpg
+  gallery-1.jpg a gallery-5.jpg
+  couple-1.jpg a couple-3.jpg
+  insta-1.jpg a insta-6.jpg
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Assessoria e cerimonial de alto padrão em Uberaba, MG. Casamentos, festas de aniversário e eventos sofisticados com planejamento completo e atenção a cada detalhe."
+    />
+    <meta property="og:title" content="A&amp;R Cerimonial &amp; Assessoria — Uberaba, MG" />
+    <meta
+      property="og:description"
+      content="Casamentos, aniversários e eventos de alto padrão em Uberaba e região. Elegância, leveza e sofisticação em cada celebração."
+    />
+    <meta property="og:type" content="website" />
+    <title>A&amp;R Cerimonial &amp; Assessoria — Uberaba, MG</title>
+
+    <!--
+      Preload da imagem Hero: prioridade máxima de rede.
+      Garante que o LCP (Largest Contentful Paint) não seja bloqueado
+      enquanto o browser aguarda o CSS interpretar o background-image.
+    -->
+    <link rel="preload" as="image" href="img/hero.jpg" fetchpriority="high" />
+
+    <!-- Pré-conexão com Google Fonts para carregamento mais rápido -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Acessibilidade: pula direto para o conteúdo principal -->
+    <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+    <!-- ═══════════════════════════════════════════════════════════
+       NAVEGAÇÃO
+       Fixa no topo. JS aplica data-scrolled="true" após 80px de
+       scroll, ativando o fundo fosco via CSS transition.
+  ══════════════════════════════════════════════════════════════ -->
+    <header class="nav" id="site-nav" role="banner">
+      <div class="nav__container">
+        <span class="nav__logo" aria-label="A&amp;R Cerimonial">
+          <img
+            src="img/logo.png"
+            alt="A&amp;R Cerimonial"
+            class="nav__logo-img"
+            height="52"
+            loading="eager"
+          />
+        </span>
+
+        <nav class="nav__links" aria-label="Navegação principal">
+          <a href="#inicio" class="nav__link" aria-current="true">Início</a>
+          <a href="#servicos" class="nav__link">Serviços</a>
+          <a href="#sobre" class="nav__link">Sobre</a>
+          <a href="#portfolio" class="nav__link">Portfólio</a>
+          <a href="#depoimentos" class="nav__link">Depoimentos</a>
+          <a href="#contato" class="nav__link">Contato</a>
+        </nav>
+
+        <a
+          href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20conversa."
+          class="btn btn--ghost-dark nav__cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Agende uma Conversa</a
+        >
+
+        <button
+          class="nav__hamburger"
+          aria-label="Abrir menu de navegação"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Menu Mobile: overlay fullscreen (controlado pelo JS) -->
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu de navegação"
+    >
+      <button class="mobile-menu__close" aria-label="Fechar menu">
+        &#x2715;
+      </button>
+
+      <nav class="mobile-menu__nav" aria-label="Menu mobile">
+        <a href="#inicio" class="mobile-menu__link">Início</a>
+        <a href="#servicos" class="mobile-menu__link">Serviços</a>
+        <a href="#sobre" class="mobile-menu__link">Sobre</a>
+        <a href="#portfolio" class="mobile-menu__link">Portfólio</a>
+        <a href="#depoimentos" class="mobile-menu__link">Depoimentos</a>
+        <a href="#contato" class="mobile-menu__link">Contato</a>
+      </nav>
+
+      <a
+        href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20conversa."
+        class="btn btn--gold mobile-menu__cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Agende uma Conversa</a
+      >
+    </div>
+
+    <main id="main-content">
+      <!-- ═══════════════════════════════════════════════════════
+         01. HERO
+         Objetivo: Impacto visual imediato. A foto É o produto.
+         O texto confirma o posicionamento de luxo.
+    ═══════════════════════════════════════════════════════════ -->
+      <section class="hero" id="inicio" aria-label="Apresentação principal">
+        <!-- Foto de fundo: começa com zoom leve, recua ao carregar -->
+        <div
+          class="hero__bg"
+          role="img"
+          aria-label="Casal em cerimônia de casamento elegante"
+        ></div>
+        <!-- Gradiente escurecedor para legibilidade do texto -->
+        <div class="hero__overlay" aria-hidden="true"></div>
+
+        <div class="hero__content">
+          <!-- Tag emocional em caligrafia dourada -->
+          <span class="hero__script animate-fade-up" style="--delay: 0.1s">
+            Celebrações que marcam para sempre
+          </span>
+
+          <!-- H1: posicionamento único da marca -->
+          <h1 class="hero__headline animate-fade-up" style="--delay: 0.3s">
+            Cada evento conta<br />a sua história
+          </h1>
+
+          <!-- Promessa de valor em uma frase -->
+          <p class="hero__body animate-fade-up" style="--delay: 0.5s">
+            Assessoria e cerimonial de alto padrão em Uberaba, MG.<br />
+            Casamentos, aniversários e eventos com elegância e leveza.
+          </p>
+
+          <div
+            class="gold-divider gold-divider--center animate-fade-up"
+            style="--delay: 0.65s"
+            aria-hidden="true"
+          ></div>
+
+          <!-- CTA duplo: descoberta (sobre) e prova (portfólio) -->
+          <div class="hero__actions animate-fade-up" style="--delay: 0.75s">
+            <a href="#sobre" class="btn btn--gold"
+              >Conheça Nossa História</a
+            >
+            <a href="#portfolio" class="btn btn--ghost-white"
+              >Ver Portfólio</a
+            >
+          </div>
+        </div>
+
+        <!-- Indicador de scroll: incentiva a continuar navegando -->
+        <div class="hero__scroll-indicator" aria-hidden="true">
+          <span class="hero__scroll-text">Rolar</span>
+          <span class="hero__scroll-icon"></span>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         02. MANIFESTO
+         Objetivo: Antes de qualquer serviço, o visitante precisa
+         sentir que a empresa compartilha seus valores. Os 3
+         pilares respondem às principais objeções de contratação.
+    ═══════════════════════════════════════════════════════════ -->
+      <section class="manifesto" aria-labelledby="manifesto-title">
+        <div class="container container--narrow">
+          <div class="manifesto__header reveal">
+            <span class="script-label">Uma equipe dedicada a você</span>
+            <h2 class="display-lg italic" id="manifesto-title">
+              O luxo está nos detalhes.<br />A emoção, em cada celebração.
+            </h2>
+            <div
+              class="gold-divider gold-divider--center"
+              aria-hidden="true"
+            ></div>
+            <p class="body-lg">
+              Cada evento é uma obra única. Reunimos planejamento minucioso,
+              estética refinada e uma equipe apaixonada para transformar sua
+              visão em uma celebração verdadeiramente inesquecível — em Uberaba
+              e em toda a região.
+            </p>
+            <p class="body-lg">
+              Da primeira conversa ao último detalhe, estamos ao seu lado para
+              que você viva cada momento com presença, leveza e elegância.
+            </p>
+          </div>
+
+          <!-- 3 Pilares de valor -->
+          <div class="manifesto__pillars" role="list">
+            <div class="manifesto__pillar reveal" role="listitem">
+              <div class="manifesto__pillar-icon" aria-hidden="true">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 23.5S4 17 4 10a6 6 0 0 1 10-4.47A6 6 0 0 1 24 10c0 7-10 13.5-10 13.5Z"
+                    stroke="#D4AF37"
+                    stroke-width="1.2"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3 class="manifesto__pillar-title">Escuta genuína</h3>
+              <p class="manifesto__pillar-text">
+                Cada cliente é único. Começamos por entender sua história, seus
+                gostos e a emoção que deseja sentir — antes de qualquer
+                proposta.
+              </p>
+            </div>
+
+            <div
+              class="manifesto__pillar reveal"
+              style="--reveal-delay: 0.12s"
+              role="listitem"
+            >
+              <div class="manifesto__pillar-icon" aria-hidden="true">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polygon
+                    points="14,4 24,11 14,24 4,11"
+                    stroke="#D4AF37"
+                    stroke-width="1.2"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                  <line
+                    x1="4"
+                    y1="11"
+                    x2="24"
+                    y2="11"
+                    stroke="#D4AF37"
+                    stroke-width="1.2"
+                  />
+                </svg>
+              </div>
+              <h3 class="manifesto__pillar-title">
+                Excelência em cada detalhe
+              </h3>
+              <p class="manifesto__pillar-text">
+                Dos arranjos florais ao cronograma do dia — nada é deixado ao
+                acaso. Cada elemento é escolhido com critério e executado com
+                perfeição.
+              </p>
+            </div>
+
+            <div
+              class="manifesto__pillar reveal"
+              style="--reveal-delay: 0.24s"
+              role="listitem"
+            >
+              <div class="manifesto__pillar-icon" aria-hidden="true">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 4L5 8v7c0 5.25 3.9 10.15 9 11.35C19.1 25.15 23 20.25 23 15V8L14 4Z"
+                    stroke="#D4AF37"
+                    stroke-width="1.2"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </div>
+              <h3 class="manifesto__pillar-title">Tranquilidade total</h3>
+              <p class="manifesto__pillar-text">
+                No grande dia, cuidamos de tudo. Você e sua família desfrutam
+                de cada momento sabendo que está em mãos experientes e
+                dedicadas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         03. SERVIÇOS
+         5 cards em layout 3+2 centralizado. O visitante precisa
+         se reconhecer em pelo menos um serviço para avançar.
+    ═══════════════════════════════════════════════════════════ -->
+      <section class="services" id="servicos" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">O que fazemos</span>
+            <h2 class="display-lg" id="services-title">Serviços</h2>
+            <div
+              class="gold-divider gold-divider--center"
+              aria-hidden="true"
+            ></div>
+            <p class="section-intro__subtitle">
+              Do planejamento completo à coordenação no dia — oferecemos o nível
+              de suporte ideal para casamentos, aniversários e eventos especiais.
+            </p>
+          </div>
+
+          <div class="services__grid">
+
+            <!-- Card 1 — Assessoria Completa -->
+            <article class="service-card reveal">
+              <div class="service-card__image-wrap">
+                <img
+                  src="img/assessoria-completa.jpg"
+                  alt="Planejamento completo de casamento — Assessoria Completa A&R"
+                  class="service-card__image"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__category">Assessoria</span>
+                <h3 class="service-card__title">Assessoria Completa</h3>
+                <p class="service-card__desc">
+                  Do noivado ao grande dia — acompanhamento integral em todas as
+                  etapas do planejamento, com presença dedicada e suporte em cada
+                  decisão.
+                </p>
+                <ul class="service-card__features" aria-label="Inclui">
+                  <li>Briefing inicial e cronograma completo</li>
+                  <li>Curadoria e negociação com fornecedores</li>
+                  <li>Acompanhamento mensal e reuniões periódicas</li>
+                  <li>Presença completa no dia do evento</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card 2 — Assessoria Parcial -->
+            <article class="service-card reveal" style="--reveal-delay: 0.08s">
+              <div class="service-card__image-wrap">
+                <img
+                  src="img/assessoria-parcial.jpg"
+                  alt="Suporte especializado nos últimos meses antes do casamento — Assessoria Parcial A&R"
+                  class="service-card__image"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__category">Assessoria</span>
+                <h3 class="service-card__title">Assessoria Parcial</h3>
+                <p class="service-card__desc">
+                  Para quem já iniciou o planejamento e precisa de suporte
+                  especializado nos últimos meses. Chegamos para organizar,
+                  alinhar e garantir o melhor resultado.
+                </p>
+                <ul class="service-card__features" aria-label="Inclui">
+                  <li>Alinhamento dos contratos já firmados</li>
+                  <li>Revisão e otimização do cronograma</li>
+                  <li>Suporte nos últimos 3 meses</li>
+                  <li>Presença completa no dia do evento</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card 3 — Assessoria do Dia -->
+            <article class="service-card reveal" style="--reveal-delay: 0.16s">
+              <div class="service-card__image-wrap">
+                <img
+                  src="img/assessoria-dia.jpg"
+                  alt="Coordenação completa no dia do casamento — Assessoria do Dia A&R"
+                  class="service-card__image"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__category">Coordenação</span>
+                <h3 class="service-card__title">Assessoria do Dia</h3>
+                <p class="service-card__desc">
+                  A tranquilidade que você merece no dia mais especial da sua
+                  vida. Nossa equipe assume a coordenação completa para que você
+                  viva cada momento com leveza.
+                </p>
+                <ul class="service-card__features" aria-label="Inclui">
+                  <li>Reunião de briefing pré-evento</li>
+                  <li>Coordenação de todos os fornecedores</li>
+                  <li>Cronograma executivo completo</li>
+                  <li>Equipe presente do início ao fim</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card 4 — Consultoria Personalizada (linha 2, centralizada) -->
+            <article class="service-card reveal" style="--reveal-delay: 0.24s">
+              <div class="service-card__image-wrap">
+                <img
+                  src="img/consultoria.jpg"
+                  alt="Sessão de consultoria personalizada para planejamento do casamento — A&R"
+                  class="service-card__image"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__category">Consultoria</span>
+                <h3 class="service-card__title">Consultoria Personalizada</h3>
+                <p class="service-card__desc">
+                  Sessões sob medida para orientar sua jornada. Compartilhamos
+                  nossa expertise para que você tome as melhores decisões com
+                  segurança e clareza.
+                </p>
+                <ul class="service-card__features" aria-label="Inclui">
+                  <li>Sessões de consultoria individuais</li>
+                  <li>Indicação de fornecedores qualificados</li>
+                  <li>Roteiro personalizado de planejamento</li>
+                  <li>Suporte por mensagens entre sessões</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card 5 — Coordenação de Ensaios (linha 2, centralizada) -->
+            <article class="service-card reveal" style="--reveal-delay: 0.32s">
+              <div class="service-card__image-wrap">
+                <img
+                  src="img/ensaio.jpg"
+                  alt="Coordenação de ensaio fotográfico pré-casamento — A&R Cerimonial"
+                  class="service-card__image"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__category">Ensaio</span>
+                <h3 class="service-card__title">Coordenação de Ensaios</h3>
+                <p class="service-card__desc">
+                  O ensaio fotográfico merece o mesmo cuidado que o casamento.
+                  Coordenamos o ambiente, o roteiro e os detalhes para imagens
+                  verdadeiramente inesquecíveis.
+                </p>
+                <ul class="service-card__features" aria-label="Inclui">
+                  <li>Escolha e visita ao local ideal</li>
+                  <li>Roteiro de poses e momentos</li>
+                  <li>Alinhamento com o fotógrafo</li>
+                  <li>Coordenação completa no dia do ensaio</li>
+                </ul>
+              </div>
+            </article>
+
+          </div>
+          <!-- /.services__grid -->
+
+          <div class="section-cta reveal">
+            <a
+              href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20conversa."
+              class="btn btn--ghost-dark"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Agende uma Conversa</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         03B. PLANOS
+         3 cards de preço sobre fundo escuro. Card central
+         destacado como "Mais escolhido".
+    ═══════════════════════════════════════════════════════════ -->
+      <section class="plans" id="planos" aria-labelledby="plans-title">
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label script-label--inverse"
+              >Invista no seu momento</span
+            >
+            <h2 class="display-lg text-inverse" id="plans-title">
+              Nossos Planos
+            </h2>
+            <div
+              class="gold-divider gold-divider--center"
+              aria-hidden="true"
+            ></div>
+            <p class="section-intro__subtitle">
+              Escolha o nível de cuidado ideal para a sua celebração. Cada plano
+              foi desenhado para entregar exatamente o que você precisa.
+            </p>
+          </div>
+
+          <div class="plans__grid">
+
+            <!-- Plano 1 — Classic -->
+            <article class="plan-card reveal">
+              <div class="plan-card__header">
+                <span class="plan-card__name">Classic</span>
+                <div class="plan-card__price" aria-label="A partir de R$ 3.000">
+                  <span class="plan-card__price-from">A partir de R$ 3.000</span>
+                </div>
+                <p class="plan-card__tagline">
+                  Para quem busca suporte no dia especial
+                </p>
+              </div>
+              <div
+                class="gold-divider plan-card__divider"
+                aria-hidden="true"
+              ></div>
+              <ul class="plan-card__features" aria-label="O que está incluso">
+                <li>Assessoria do Dia completa</li>
+                <li>1 reunião de briefing pré-evento</li>
+                <li>Coordenação de todos os fornecedores</li>
+                <li>Cronograma executivo personalizado</li>
+                <li>Equipe presente do início ao fim</li>
+              </ul>
+              <a
+                href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Gostei%20do%20plano%20Classic%20e%20gostaria%20de%20saber%20mais%20detalhes."
+                class="btn btn--ghost-white plan-card__cta"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Quero este plano</a
+              >
+            </article>
+
+            <!-- Plano 2 — Elegance (destaque) -->
+            <article
+              class="plan-card plan-card--featured reveal"
+              style="--reveal-delay: 0.12s"
+            >
+              <div class="plan-card__badge" aria-label="Mais escolhido">
+                Mais escolhido
+              </div>
+              <div class="plan-card__header">
+                <span class="plan-card__name">Elegance</span>
+                <div class="plan-card__price" aria-label="A partir de R$ 5.000">
+                  <span class="plan-card__price-from">A partir de R$ 5.000</span>
+                </div>
+                <p class="plan-card__tagline">
+                  Para quem quer mais presença e cuidado
+                </p>
+              </div>
+              <div
+                class="gold-divider plan-card__divider"
+                aria-hidden="true"
+              ></div>
+              <ul class="plan-card__features" aria-label="O que está incluso">
+                <li>Assessoria Parcial (últimos 3 meses)</li>
+                <li>Reuniões mensais de acompanhamento</li>
+                <li>Revisão de contratos e cronograma</li>
+                <li>Coordenação completa no dia</li>
+                <li>Suporte por WhatsApp entre reuniões</li>
+                <li>Indicação de fornecedores parceiros</li>
+              </ul>
+              <a
+                href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Gostei%20do%20plano%20Elegance%20e%20gostaria%20de%20saber%20mais%20detalhes."
+                class="btn btn--gold plan-card__cta"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Quero este plano</a
+              >
+            </article>
+
+            <!-- Plano 3 — Royal One -->
+            <article
+              class="plan-card reveal"
+              style="--reveal-delay: 0.24s"
+            >
+              <div class="plan-card__header">
+                <span class="plan-card__name">Royal One</span>
+                <div class="plan-card__price" aria-label="Sob medida para o seu evento">
+                  <span class="plan-card__price-bespoke">Sob medida</span>
+                </div>
+                <p class="plan-card__tagline">
+                  A experiência mais completa e exclusiva
+                </p>
+              </div>
+              <div
+                class="gold-divider plan-card__divider"
+                aria-hidden="true"
+              ></div>
+              <ul class="plan-card__features" aria-label="O que está incluso">
+                <li>Assessoria Completa do noivado ao casamento</li>
+                <li>Curadoria e negociação com fornecedores</li>
+                <li>Reuniões mensais e suporte dedicado</li>
+                <li>Coordenação de ensaio fotográfico</li>
+                <li>Presença completa no dia do evento</li>
+                <li>Consultoria personalizada ilimitada</li>
+                <li>Atendimento prioritário e exclusivo</li>
+              </ul>
+              <a
+                href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Gostei%20do%20plano%20Royal%20One%20e%20gostaria%20de%20saber%20mais%20detalhes."
+                class="btn btn--ghost-white plan-card__cta"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Quero este plano</a
+              >
+            </article>
+
+          </div>
+          <!-- /.plans__grid -->
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         03C. EXPERIÊNCIAS EXCLUSIVAS A&R
+         Day Bride e Day Groom — dois cards emocionais.
+    ═══════════════════════════════════════════════════════════ -->
+      <section
+        class="experiences"
+        id="experiencias"
+        aria-labelledby="experiences-title"
+      >
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">Momentos só seus</span>
+            <h2 class="display-lg" id="experiences-title">
+              Experiências<br />Exclusivas A&amp;R
+            </h2>
+            <div
+              class="gold-divider gold-divider--center"
+              aria-hidden="true"
+            ></div>
+            <p class="section-intro__subtitle">
+              Criamos vivências únicas para que os noivos entrem no grande dia
+              com serenidade, confiança e emoção — cada um no ritmo do seu
+              próprio momento.
+            </p>
+          </div>
+
+          <div class="experiences__grid">
+
+            <!-- Day Bride Experience -->
+            <article class="experience-card reveal">
+              <div class="experience-card__icon" aria-hidden="true">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 3C16 3 7 11 7 19a9 9 0 0 0 18 0C25 11 16 3 16 3Z"
+                    stroke="#D4AF37"
+                    stroke-width="1.2"
+                    fill="none"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M16 11v12"
+                    stroke="#D4AF37"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    opacity=".6"
+                  />
+                  <path
+                    d="M11 15l5-4 5 4"
+                    stroke="#D4AF37"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    opacity=".6"
+                  />
+                </svg>
+              </div>
+              <h3 class="experience-card__title">Day Bride Experience</h3>
+              <p class="experience-card__desc">
+                Um dia inteiramente dedicado à noiva. Da preparação à cerimônia,
+                cada detalhe é orquestrado para que ela se sinta presente, linda
+                e completamente tranquila. Uma equipe exclusiva cuida de tudo
+                enquanto ela simplesmente vive.
+              </p>
+              <ul
+                class="experience-card__features"
+                aria-label="O que está incluso"
+              >
+                <li>Organização e gestão completa da preparação da noiva</li>
+                <li>Coordenação com cabeleireiro, maquiador e equipe</li>
+                <li>Cronograma personalizado da manhã</li>
+                <li>Acompanhamento dedicado até o altar</li>
+              </ul>
+              <button
+                class="btn btn--ghost-dark experience-expand-toggle"
+                aria-expanded="false"
+                aria-controls="experience-expand-bride"
+              >
+                <span class="experience-expand-toggle__label">Saiba mais</span>
+                <span class="experience-expand-toggle__icon" aria-hidden="true">↓</span>
+              </button>
+            </article>
+
+            <!-- Day Groom Experience -->
+            <article
+              class="experience-card reveal"
+              style="--reveal-delay: 0.15s"
+            >
+              <div class="experience-card__icon" aria-hidden="true">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="5"
+                    y="5"
+                    width="22"
+                    height="22"
+                    rx="1"
+                    stroke="#D4AF37"
+                    stroke-width="1.2"
+                    fill="none"
+                  />
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="4"
+                    stroke="#D4AF37"
+                    stroke-width="1.2"
+                  />
+                  <path
+                    d="M16 5v4M16 23v4M5 16h4M23 16h4"
+                    stroke="#D4AF37"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    opacity=".5"
+                  />
+                </svg>
+              </div>
+              <h3 class="experience-card__title">Day Groom Experience</h3>
+              <p class="experience-card__desc">
+                O noivo também merece ter o seu dia pensado com cuidado. Uma
+                experiência dedicada para que ele chegue ao altar sereno, pronto
+                e no controle — sem a pressão de gerenciar nada além do seu
+                próprio momento.
+              </p>
+              <ul
+                class="experience-card__features"
+                aria-label="O que está incluso"
+              >
+                <li>Organização da preparação do noivo e padrinhos</li>
+                <li>Alinhamento com fornecedores e equipe do noivo</li>
+                <li>Cronograma da manhã e dos momentos pré-cerimônia</li>
+                <li>Apoio logístico completo até a cerimônia</li>
+              </ul>
+              <button
+                class="btn btn--ghost-dark experience-expand-toggle"
+                aria-expanded="false"
+                aria-controls="experience-expand-groom"
+              >
+                <span class="experience-expand-toggle__label">Saiba mais</span>
+                <span class="experience-expand-toggle__icon" aria-hidden="true">↓</span>
+              </button>
+            </article>
+
+          </div>
+          <!-- /.experiences__grid -->
+
+          <!-- ── Bloco expansível: Day Bride Experience ──────────── -->
+          <div class="experience-expand" id="experience-expand-bride" aria-hidden="true">
+            <div class="experience-expand__inner">
+              <div class="experience-expand__kicker" aria-hidden="true">
+                <span class="experience-expand__kicker-text">Day Bride Experience</span>
+              </div>
+              <div class="experience-expand__body">
+                <p class="experience-expand__first">
+                  É muito mais do que o "dia da noiva" tradicional. Trata-se de uma experiência completa, pensada para que a noiva viva as horas que antecedem o casamento com tranquilidade, conforto e emoção.
+                </p>
+                <p>
+                  Inclui toda a preparação — cabelo, maquiagem, produção — mas vai além: envolve o ambiente, a atmosfera, os detalhes sensoriais, o cuidado com o tempo e até momentos especiais, como brindes, fotos, cartas ou encontros marcantes.
+                </p>
+                <p class="experience-expand__closing">
+                  A ideia é transformar esse período em algo memorável, leve e significativo, reduzindo o estresse e valorizando cada instante antes do grande momento.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Bloco expansível: Day Groom Experience ──────────── -->
+          <div class="experience-expand" id="experience-expand-groom" aria-hidden="true">
+            <div class="experience-expand__inner">
+              <div class="experience-expand__kicker" aria-hidden="true">
+                <span class="experience-expand__kicker-text">Day Groom Experience</span>
+              </div>
+              <div class="experience-expand__body">
+                <p class="experience-expand__first">
+                  Seguindo o mesmo conceito, o Day Groom Experience é a versão pensada para o noivo.
+                </p>
+                <p>
+                  Tradicionalmente menos explorado, hoje ele ganha cada vez mais destaque com propostas que incluem barbearia premium, cuidados pessoais, momentos com padrinhos, drinks, música e um ambiente descontraído, porém sofisticado.
+                </p>
+                <p>
+                  Mais do que se arrumar, o noivo também passa a viver uma experiência — com identidade, estilo e significado — criando memórias únicas antes de subir ao altar.
+                </p>
+                <p class="experience-expand__closing">
+                  A ideia é transformar esse período em algo memorável, leve e significativo, reduzindo o estresse e valorizando cada instante antes do grande momento.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         04. PROCESSO — Como Trabalhamos
+         Objetivo: Reduzir a ansiedade de contratação. O cliente
+         precisa visualizar a jornada antes do primeiro contato.
+    ═══════════════════════════════════════════════════════════ -->
+      <section class="process" aria-labelledby="process-title">
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">A nossa forma de trabalhar</span>
+            <h2 class="display-lg" id="process-title">Como trabalhamos</h2>
+            <div
+              class="gold-divider gold-divider--center"
+              aria-hidden="true"
+            ></div>
+            <p class="section-intro__subtitle">
+              Um processo construído para que você se sinta tranquila em cada
+              etapa — desde o primeiro contato até o último abraço na celebração.
+            </p>
+          </div>
+
+          <ol class="process__steps" aria-label="Etapas do processo">
+            <li class="process__step reveal">
+              <div class="process__step-number" aria-hidden="true">01</div>
+              <!-- Linha conectora visual entre steps (decorativa) -->
+              <div class="process__step-connector" aria-hidden="true"></div>
+              <div class="process__step-content">
+                <h3 class="process__step-title">Primeiro Encontro</h3>
+                <p class="process__step-text">
+                  Uma conversa íntima — sem compromisso — para conhecer você,
+                  compreender sua visão e apresentar como podemos trabalhar
+                  juntos. Presencial em Uberaba ou por videochamada.
+                </p>
+              </div>
+            </li>
+
+            <li class="process__step reveal" style="--reveal-delay: 0.12s">
+              <div class="process__step-number" aria-hidden="true">02</div>
+              <div class="process__step-connector" aria-hidden="true"></div>
+              <div class="process__step-content">
+                <h3 class="process__step-title">Proposta Personalizada</h3>
+                <p class="process__step-text">
+                  Elaboramos uma proposta sob medida com escopo, cronograma e
+                  investimento alinhados à sua realidade. Nada genérico — cada
+                  proposta é criada exclusivamente para a sua celebração.
+                </p>
+              </div>
+            </li>
+
+            <li class="process__step reveal" style="--reveal-delay: 0.24s">
+              <div class="process__step-number" aria-hidden="true">03</div>
+              <div class="process__step-connector" aria-hidden="true"></div>
+              <div class="process__step-content">
+                <h3 class="process__step-title">
+                  Planejamento &amp; Curadoria
+                </h3>
+                <p class="process__step-text">
+                  Iniciamos o planejamento completo: seleção de fornecedores,
+                  visitas a espaços, definição estética e gestão de todos os
+                  detalhes mês a mês.
+                </p>
+              </div>
+            </li>
+
+            <li class="process__step reveal" style="--reveal-delay: 0.36s">
+              <!-- Sem conector no último step -->
+              <div class="process__step-number" aria-hidden="true">04</div>
+              <div
+                class="process__step-connector process__step-connector--last"
+                aria-hidden="true"
+              ></div>
+              <div class="process__step-content">
+                <h3 class="process__step-title">O Grande Dia</h3>
+                <p class="process__step-text">
+                  Nossa equipe chega horas antes para garantir que tudo esteja
+                  perfeito. Você chega, respira fundo e vive — enquanto cuidamos
+                  de absolutamente tudo nos bastidores.
+                </p>
+              </div>
+            </li>
+          </ol>
+          <!-- /.process__steps -->
+
+          <div class="section-cta reveal">
+            <a
+              href="https://wa.me/5534997089185?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20A%26R%20Cerimonial%20%26%20Assessoria%20e%20gostaria%20de%20agendar%20uma%20conversa%20inicial."
+              class="btn btn--gold"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Agendar Conversa Inicial</a
+            >
+            <p class="process__cta-note">Gratuita e sem compromisso</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         05. STATS — Credenciais numéricas
+         Objetivo: Provar autoridade com dados concretos.
+         Números animados aumentam engajamento visual.
+    ═══════════════════════════════════════════════════════════ -->
+      <section class="stats" aria-label="Credenciais e trajetória da empresa">
+        <div class="container">
+          <div class="stats__header reveal">
+            <span class="script-label script-label--inverse"
+              >Nossa trajetória</span
+            >
+            <div
+              class="gold-divider gold-divider--center"
+              aria-hidden="true"
+            ></div>
+          </div>
+
+          <div class="stats__grid">
+            <!-- data-target: valor final | data-prefix/suffix: decoração -->
+            <div class="stat reveal">
+              <span
+                class="stat__number"
+                data-target="100"
+                data-prefix="+"
+                aria-label="Mais de 100 eventos realizados"
+                >0</span
+              >
+              <span class="stat__label">Eventos realizados</span>
+            </div>
+
+            <div class="stat reveal" style="--reveal-delay: 0.1s">
+              <span
+                class="stat__number"
+                data-target="5"
+                aria-label="5 anos de experiência"
+                >0</span
+              >
+              <span class="stat__label">Anos de experiência</span>
+            </div>
+
+            <div class="stat reveal" style="--reveal-delay: 0.2s">
+              <span
+                class="stat__number"
+                data-target="98"
+                data-suffix="%"
+                aria-label="98% dos clientes indicam"
+                >0</span
+              >
+              <span class="stat__label">Clientes que nos indicam</span>
+            </div>
+
+            <div class="stat reveal" style="--reveal-delay: 0.3s">
+              <span
+                class="stat__number"
+                aria-label="Avaliação média 4,9 estrelas"
+                >4,9 ★</span
+              >
+              <span class="stat__label">Avaliação dos clientes</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         07. SOBRE / FUNDADORA
+         Objetivo: Conexão humana — o cliente contrata pessoas,
+         não empresas. A fundadora precisa aparecer como real.
+    ═══════════════════════════════════════════════════════════ -->
+      <section class="about" id="sobre" aria-labelledby="about-title">
+        <div class="container">
+          <div class="about__grid">
+            <div class="about__image-wrap reveal">
+              <img
+                src="img/founder.jpg"
+                alt="Equipe A&amp;R Cerimonial &amp; Assessoria — Uberaba, MG"
+                class="about__image"
+                loading="lazy"
+                width="480"
+                height="640"
+              />
+            </div>
+
+            <div class="about__content reveal">
+              <span class="script-label script-label--left">Quem somos</span>
+              <h2 class="display-md" id="about-title">
+                Criamos experiências<br />que emocionam.
+              </h2>
+              <div class="gold-divider" aria-hidden="true"></div>
+
+              <p class="body-md">
+                Nascemos em Uberaba com um propósito claro: fazer com que cada
+                celebração seja absolutamente perfeita. Não apenas bonita — mas
+                verdadeira, sentida, única. É essa convicção que move cada
+                projeto que realizamos.
+              </p>
+              <p class="body-md">
+                Nossa equipe une planejamento estratégico com sensibilidade
+                artística. Entendemos que cada cliente carrega uma história, e é
+                essa história que guia cada escolha estética, cada detalhe
+                logístico, cada momento do grande dia.
+              </p>
+              <p class="body-md">
+                Mais do que assessoras, somos parceiras. Estamos com você em
+                cada passo, cada decisão e cada emoção — do primeiro encontro ao
+                último abraço da celebração.
+              </p>
+
+              <!-- Assinatura SVG — humaniza e autêntica a mensagem -->
+              <div
+                class="about__signature"
+                aria-label="Assinatura A&amp;R Cerimonial"
+              >
+                <svg
+                  width="140"
+                  height="48"
+                  viewBox="0 0 140 48"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8 36 C20 20, 35 8, 55 16 C70 22, 72 38, 88 30 C102 23, 115 10, 132 18"
+                    stroke="#D4AF37"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M12 42 C30 38, 60 44, 90 40 C110 37, 125 42, 138 38"
+                    stroke="#D4AF37"
+                    stroke-width="1"
+                    fill="none"
+                    stroke-linecap="round"
+                    opacity=".5"
+                  />
+                </svg>
+              </div>
+
+              <div class="about__author">
+                <span class="about__author-name">A&amp;R Cerimonial</span>
+                <span class="about__author-role"
+                  >Assessoria &amp; Cerimonial — Uberaba, MG</span
+                >
+              </div>
+
+              <button
+                class="btn btn--text about__history-toggle"
+                aria-expanded="false"
+                aria-controls="about-history"
+              >
+                Nossa História Completa
+                <span class="about__history-toggle-icon" aria-hidden="true">↓</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Bloco expansível — Nossa História Completa -->
+          <div
+            class="about__history"
+            id="about-history"
+            aria-hidden="true"
+          >
+            <div class="about__history-inner">
+
+              <!-- Kicker decorativo com linhas e caligrafia -->
+              <div class="about__history-kicker" aria-hidden="true">
+                <span class="about__history-kicker-text">A&amp;R Cerimonial</span>
+              </div>
+
+              <div class="about__history-body">
+                <p class="about__history-first">
+                  Nossa história começa em Uberaba, mas nosso propósito vai muito além de um lugar. Nascemos com uma missão clara e inegociável: transformar cada celebração em algo absolutamente perfeito. Não apenas esteticamente bonito — mas profundamente verdadeiro, autêntico e cheio de significado. Acreditamos que os momentos mais importantes da vida merecem ser vividos com intensidade, cuidado e intenção, e é essa convicção que guia tudo o que fazemos.
+                </p>
+                <p>
+                  Cada projeto que realizamos é conduzido com olhar sensível e atenção minuciosa. Unimos planejamento estratégico, organização impecável e uma curadoria artística refinada para construir experiências únicas. Não seguimos fórmulas prontas, porque sabemos que não existem histórias iguais. Cada cliente traz consigo um universo próprio — sonhos, memórias, expectativas — e é a partir dessa essência que desenvolvemos cada detalhe.
+                </p>
+                <p>
+                  Do conceito inicial à execução final, cada escolha é pensada com propósito: das cores à iluminação, do ritmo do evento à experiência dos convidados. Tudo é desenhado para criar uma atmosfera que represente, de forma genuína, quem você é e o que deseja celebrar.
+                </p>
+                <p>
+                  Mais do que assessores, somos parceiros de jornada. Caminhamos ao seu lado em cada etapa, oferecendo segurança nas decisões, leveza nos processos e presença nos momentos mais importantes. Estamos ali no planejamento, nos bastidores, nos imprevistos e, principalmente, nas emoções — do primeiro encontro cheio de expectativas ao último abraço carregado de significado.
+                </p>
+                <p class="about__history-closing">
+                  Porque para nós, não se trata apenas de organizar eventos. Trata-se de criar experiências que tocam, conectam e permanecem para sempre.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         08. GALERIA PREVIEW
+         Objetivo: Reforçar o desejo visual após a seção da
+         fundadora. Grade assimétrica imita revistas de luxo.
+    ═══════════════════════════════════════════════════════════ -->
+      <section
+        class="gallery-preview"
+        id="portfolio"
+        aria-labelledby="gallery-title"
+      >
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">Nossa Galeria</span>
+            <h2 class="display-lg" id="gallery-title">
+              Histórias que<br />criamos juntos
+            </h2>
+            <div
+              class="gold-divider gold-divider--center"
+              aria-hidden="true"
+            ></div>
+            <p class="section-intro__subtitle">
+              Cada imagem representa uma história real de amor e o compromisso
+              da nossa equipe em torná-la inesquecível.
+            </p>
+          </div>
+
+          <div
+            class="gallery-preview__grid"
+            role="list"
+            aria-label="Galeria de casamentos"
+          >
+            <div
+              class="gallery-preview__item gallery-preview__item--large"
+              role="listitem"
+            >
+              <img
+                src="img/portfolio-1.jpg"
+                alt="Registro do portfólio A&amp;R Cerimonial — cerimônia em Uberaba"
+                loading="lazy"
+              />
+              <div class="gallery-preview__caption" aria-hidden="true">
+                <span>Portfólio A&amp;R</span><span>2024</span>
+              </div>
+            </div>
+
+            <div
+              class="gallery-preview__item gallery-preview__item--top"
+              role="listitem"
+            >
+              <img
+                src="img/portfolio-2.jpg"
+                alt="Registro do portfólio A&amp;R Cerimonial — decoração floral"
+                loading="lazy"
+              />
+              <div class="gallery-preview__caption" aria-hidden="true">
+                <span>Portfólio A&amp;R</span><span>2024</span>
+              </div>
+            </div>
+
+            <div
+              class="gallery-preview__item gallery-preview__item--bottom"
+              role="listitem"
+            >
+              <img
+                src="img/portfolio-3.jpg"
+                alt="Registro do portfólio A&amp;R Cerimonial — momentos especiais"
+                loading="lazy"
+              />
+              <div class="gallery-preview__caption" aria-hidden="true">
+                <span>Portfólio A&amp;R</span><span>2024</span>
+              </div>
+            </div>
+
+            <div
+              class="gallery-preview__item gallery-preview__item--small-left"
+              role="listitem"
+            >
+              <img
+                src="img/portfolio-4.jpg"
+                alt="Registro do portfólio A&amp;R Cerimonial — detalhes da celebração"
+                loading="lazy"
+              />
+              <div class="gallery-preview__caption" aria-hidden="true">
+                <span>Portfólio A&amp;R</span><span>2025</span>
+              </div>
+            </div>
+
+            <div
+              class="gallery-preview__item gallery-preview__item--large-right"
+              role="listitem"
+            >
+              <img
+                src="img/portfolio-5.jpg"
+                alt="Registro do portfólio A&amp;R Cerimonial — cerimônia ao entardecer"
+                loading="lazy"
+              />
+              <div class="gallery-preview__caption" aria-hidden="true">
+                <span>Portfólio A&amp;R</span><span>2025</span>
+              </div>
+            </div>
+          </div>
+          <!-- /.gallery-preview__grid -->
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         09. DEPOIMENTOS
+         Objetivo: Prova social antes do CTA final. Depoimentos
+         reais, com nome completo e contexto, convencem mais
+         do que elogios genéricos.
+    ═══════════════════════════════════════════════════════════ -->
+      <section
+        class="testimonials"
+        id="depoimentos"
+        aria-labelledby="testimonials-title"
+      >
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">Depoimentos</span>
+            <h2 class="display-lg" id="testimonials-title">
+              O que dizem<br />nossos casais
+            </h2>
+            <div
+              class="gold-divider gold-divider--center"
+              aria-hidden="true"
+            ></div>
+            <p class="section-intro__subtitle">
+              Mais de 100 eventos realizados em Uberaba e região. Cada
+              depoimento é uma história de confiança, entrega e emoção
+              compartilhada.
+            </p>
+          </div>
+
+          <div class="testimonials__grid">
+
+            <!-- Card 1 — Juliana & Marcos -->
+            <article class="testimonial-card reveal">
+              <div class="testimonial-card__header">
+                <img
+                  src="img/depoimento-1.jpg"
+                  alt="Foto do casal Juliana e Marcos"
+                  class="testimonial-card__avatar"
+                  loading="lazy"
+                  width="96"
+                  height="96"
+                />
+                <span class="testimonial-card__name">Juliana &amp; Marcos</span>
+                <span class="testimonial-card__meta">Uberaba e região</span>
+                <div class="testimonial-card__stars" aria-label="Avaliação: 5 de 5 estrelas">
+                  <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                </div>
+              </div>
+              <div class="testimonial-card__divider" aria-hidden="true"></div>
+              <div class="testimonial-card__quote-icon" aria-hidden="true">&ldquo;</div>
+              <blockquote class="testimonial-card__text">
+                A equipe da A&amp;R transformou nosso casamento em algo que jamais imaginamos ser possível. Cada detalhe foi pensado com um cuidado que só pessoas verdadeiramente apaixonadas pelo que fazem conseguem oferecer. Nos sentimos acolhidos, seguros e livres para viver o nosso dia com leveza.
+              </blockquote>
+            </article>
+
+            <!-- Card 2 — Amanda & Felipe -->
+            <article class="testimonial-card reveal" style="--reveal-delay: 0.12s">
+              <div class="testimonial-card__header">
+                <img
+                  src="img/depoimento-2.jpg"
+                  alt="Foto do casal Amanda e Felipe"
+                  class="testimonial-card__avatar"
+                  loading="lazy"
+                  width="96"
+                  height="96"
+                />
+                <span class="testimonial-card__name">Amanda &amp; Felipe</span>
+                <span class="testimonial-card__meta">Uberaba e região</span>
+                <div class="testimonial-card__stars" aria-label="Avaliação: 5 de 5 estrelas">
+                  <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                </div>
+              </div>
+              <div class="testimonial-card__divider" aria-hidden="true"></div>
+              <div class="testimonial-card__quote-icon" aria-hidden="true">&ldquo;</div>
+              <blockquote class="testimonial-card__text">
+                Desde o primeiro contato sentimos que estávamos em boas mãos. A organização, a sensibilidade e a atenção aos detalhes fizeram toda a diferença. Conseguimos aproveitar cada momento sem preocupação, sabendo que tudo estava sendo conduzido com excelência.
+              </blockquote>
+            </article>
+
+            <!-- Card 3 — Camila & Renato -->
+            <article class="testimonial-card reveal" style="--reveal-delay: 0.24s">
+              <div class="testimonial-card__header">
+                <img
+                  src="img/depoimento-3.jpg"
+                  alt="Foto do casal Camila e Renato"
+                  class="testimonial-card__avatar"
+                  loading="lazy"
+                  width="96"
+                  height="96"
+                />
+                <span class="testimonial-card__name">Camila &amp; Renato</span>
+                <span class="testimonial-card__meta">Uberaba e região</span>
+                <div class="testimonial-card__stars" aria-label="Avaliação: 5 de 5 estrelas">
+                  <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                </div>
+              </div>
+              <div class="testimonial-card__divider" aria-hidden="true"></div>
+              <div class="testimonial-card__quote-icon" aria-hidden="true">&ldquo;</div>
+              <blockquote class="testimonial-card__text">
+                A A&amp;R trouxe exatamente o que sonhávamos para o nosso grande dia: elegância, cuidado e uma experiência realmente inesquecível. Foi muito mais do que assessoria — foi parceria verdadeira em cada etapa. O resultado foi um evento leve, emocionante e perfeitamente alinhado com a nossa história.
+              </blockquote>
+            </article>
+
+          </div>
+          <!-- /.testimonials__grid -->
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         10. INSTAGRAM STRIP
+         Objetivo: Prova social em tempo real. Mostra que a marca
+         é ativa e esteticamente consistente nas redes sociais.
+    ═══════════════════════════════════════════════════════════ -->
+      <section class="instagram-strip" aria-label="Feed do Instagram">
+        <div class="container">
+
+          <div class="instagram-strip__header reveal">
+            <span class="instagram-strip__label">Siga nossa jornada</span>
+            <a
+              href="https://instagram.com/arcerimoniale_"
+              class="instagram-strip__handle"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Siga @arcerimoniale_ no Instagram"
+            >
+              @arcerimoniale_
+            </a>
+          </div>
+
+          <!-- SVG do Instagram reutilizado via <use> -->
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <defs>
+              <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="5"
+                  stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="12" cy="12" r="5"
+                  stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+              </symbol>
+            </defs>
+          </svg>
+
+          <div
+            class="instagram-strip__grid reveal"
+            role="list"
+            aria-label="Fotos do Instagram da A&amp;R Cerimonial"
+          >
+
+            <a
+              href="https://instagram.com/arcerimoniale_"
+              class="instagram-strip__item"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="listitem"
+              aria-label="Ver post no Instagram — Arranjo floral para mesa de casamento"
+            >
+              <img
+                src="img/insta-1.png"
+                alt=""
+                class="instagram-strip__img"
+                loading="lazy"
+              />
+              <div class="instagram-strip__overlay" aria-hidden="true">
+                <svg width="28" height="28" class="instagram-strip__icon">
+                  <use href="#icon-instagram"/>
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="https://instagram.com/arcerimoniale_"
+              class="instagram-strip__item"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="listitem"
+              aria-label="Ver post no Instagram — Cerimônia ao ar livre com arco floral"
+            >
+              <img
+                src="img/insta-2.png"
+                alt=""
+                class="instagram-strip__img"
+                loading="lazy"
+              />
+              <div class="instagram-strip__overlay" aria-hidden="true">
+                <svg width="28" height="28" class="instagram-strip__icon">
+                  <use href="#icon-instagram"/>
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="https://instagram.com/arcerimoniale_"
+              class="instagram-strip__item"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="listitem"
+              aria-label="Ver post no Instagram — Mesa de jantar com iluminação de velas"
+            >
+              <img
+                src="img/insta-3.png"
+                alt=""
+                class="instagram-strip__img"
+                loading="lazy"
+              />
+              <div class="instagram-strip__overlay" aria-hidden="true">
+                <svg width="28" height="28" class="instagram-strip__icon">
+                  <use href="#icon-instagram"/>
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="https://instagram.com/arcerimoniale_"
+              class="instagram-strip__item"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="listitem"
+              aria-label="Ver post no Instagram — Casal caminhando no jardim iluminado"
+            >
+              <img
+                src="img/insta-4.png"
+                alt=""
+                class="instagram-strip__img"
+                loading="lazy"
+              />
+              <div class="instagram-strip__overlay" aria-hidden="true">
+                <svg width="28" height="28" class="instagram-strip__icon">
+                  <use href="#icon-instagram"/>
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="https://instagram.com/arcerimoniale_"
+              class="instagram-strip__item"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="listitem"
+              aria-label="Ver post no Instagram — Detalhe do vestido de noiva com véu longo"
+            >
+              <img
+                src="img/insta-5.png"
+                alt=""
+                class="instagram-strip__img"
+                loading="lazy"
+              />
+              <div class="instagram-strip__overlay" aria-hidden="true">
+                <svg width="28" height="28" class="instagram-strip__icon">
+                  <use href="#icon-instagram"/>
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="https://instagram.com/arcerimoniale_"
+              class="instagram-strip__item"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="listitem"
+              aria-label="Ver post no Instagram — Primeiro beijo do casal durante a cerimônia"
+            >
+              <img
+                src="img/insta-6.png"
+                alt=""
+                class="instagram-strip__img"
+                loading="lazy"
+              />
+              <div class="instagram-strip__overlay" aria-hidden="true">
+                <svg width="28" height="28" class="instagram-strip__icon">
+                  <use href="#icon-instagram"/>
+                </svg>
+              </div>
+            </a>
+
+          </div>
+          <!-- /.instagram-strip__grid -->
+
+          <div class="instagram-strip__cta reveal">
+            <a
+              href="https://instagram.com/arcerimoniale_"
+              class="btn btn--ghost-dark instagram-strip__cta-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver mais fotos no Instagram da A&R Cerimonial"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0">
+                <rect x="2" y="2" width="20" height="20" rx="5"
+                  stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="12" cy="12" r="5"
+                  stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+              </svg>
+              Ver mais no Instagram
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+         12. CTA FINAL — Conversão
+         Objetivo: Único ponto de conversão da página. Tudo que
+         veio antes preparou este momento. O próximo passo precisa
+         parecer simples e sem risco.
+    ═══════════════════════════════════════════════════════════ -->
+      <section class="cta-section" id="contato" aria-labelledby="cta-title">
+        <!-- Foto de atmosfera de casamento -->
+        <div
+          class="cta-section__bg"
+          role="img"
+          aria-label="Cerimônia ao pôr do sol"
+        ></div>
+        <div class="cta-section__overlay" aria-hidden="true"></div>
+
+        <div class="cta-section__content container">
+          <span class="script-label script-label--inverse reveal"
+            >Vamos começar</span
+          >
+
+          <h2 class="display-lg text-inverse reveal" id="cta-title">
+            A sua celebração perfeita<br />começa com uma conversa.
+          </h2>
+
+          <p
+            class="body-lg text-inverse reveal"
+            style="opacity: 0.85; max-width: 500px; margin: 0 auto var(--sp-10)"
+          >
+            Conte-nos sobre o seu sonho. Uma conversa inicial, gratuita e sem
+            compromisso, é tudo que precisamos para dar o primeiro passo juntos.
+            Atendemos em Uberaba e região.
+          </p>
+
+          <a
+            href="https://wa.me/5534997089185?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20A%26R%20Cerimonial%20%26%20Assessoria%20e%20gostaria%20de%20agendar%20uma%20conversa%20inicial."
+            class="btn btn--gold reveal"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Agendar Conversa Inicial</a
+          >
+
+          <p class="cta-section__sub reveal">
+            Respondemos em até 24 horas úteis
+          </p>
+        </div>
+      </section>
+    </main>
+    <!-- /#main-content -->
+
+    <!-- ═══════════════════════════════════════════════════════════
+       RODAPÉ
+       Fecha a experiência com todos os pontos de acesso:
+       redes sociais, links de navegação e informações de contato.
+  ═══════════════════════════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer__grid">
+          <!-- Coluna 1: Identidade + social + newsletter -->
+          <div class="footer__brand">
+            <span class="footer__logo" aria-label="A&amp;R Cerimonial">
+              <img
+                src="img/logo.png"
+                alt="A&amp;R Cerimonial"
+                class="footer__logo-img"
+                height="68"
+                loading="lazy"
+              />
+            </span>
+            <p class="footer__tagline">
+              Celebrações extraordinárias,<br />memórias eternas.
+            </p>
+
+            <div class="footer__social" aria-label="Redes sociais">
+              <a
+                href="https://instagram.com/arcerimoniale_"
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram @arcerimoniale_"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="2"
+                    y="2"
+                    width="20"
+                    height="20"
+                    rx="5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                </svg>
+              </a>
+              <a
+                href="https://wa.me/5534997089185?text=Olá!%20Vim%20pelo%20site%20da%20A%26R%20Assessoria%20%26%20Cerimonial%20e%20gostaria%20de%20mais%20informações."
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <div class="footer__newsletter">
+              <label for="newsletter-email" class="footer__newsletter-label">
+                Receba inspirações
+              </label>
+              <div class="footer__newsletter-row">
+                <input
+                  type="email"
+                  id="newsletter-email"
+                  class="footer__newsletter-input"
+                  placeholder="seu@email.com"
+                  aria-label="Seu e-mail para receber inspirações"
+                  autocomplete="email"
+                />
+                <button
+                  class="footer__newsletter-btn"
+                  type="button"
+                  aria-label="Inscrever-se na newsletter"
+                >
+                  &#8594;
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- /.footer__brand -->
+
+          <!-- Coluna 2: Páginas principais -->
+          <div class="footer__col">
+            <span class="footer__col-label">Páginas</span>
+            <nav aria-label="Links do rodapé — páginas">
+              <a href="#sobre" class="footer__link">Sobre Nós</a>
+              <a href="#servicos" class="footer__link">Serviços</a>
+              <a href="#portfolio" class="footer__link">Portfólio</a>
+              <a
+                href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+                class="footer__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Contato</a>
+            </nav>
+          </div>
+
+          <!-- Coluna 3: Serviços -->
+          <div class="footer__col">
+            <span class="footer__col-label">Serviços</span>
+            <div aria-label="Serviços oferecidos">
+              <span class="footer__link footer__link--static">Cerimonial Completo</span>
+              <span class="footer__link footer__link--static">Assessoria de Casamento</span>
+              <span class="footer__link footer__link--static">Decoração &amp; Florais</span>
+              <span class="footer__link footer__link--static">Festas &amp; Eventos</span>
+            </div>
+          </div>
+
+          <!-- Coluna 4: Informações de contato -->
+          <div class="footer__col">
+            <span class="footer__col-label">Contato</span>
+            <a
+              href="https://wa.me/5534997089185?text=Olá!%20Vim%20pelo%20site%20da%20A%26R%20Assessoria%20%26%20Cerimonial%20e%20gostaria%20de%20mais%20informações."
+              class="footer__contact-item footer__contact-item--phone"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              +55 34 99708-9185
+            </a>
+            <a
+              href="mailto:contatoarcerimonial@gmail.com"
+              class="footer__contact-item footer__contact-item--email"
+            >
+              contatoarcerimonial@gmail.com
+            </a>
+            <span class="footer__contact-item">Uberaba, MG — Brasil</span>
+            <span class="footer__contact-item">Seg–Sáb, 09h–18h</span>
+          </div>
+        </div>
+        <!-- /.footer__grid -->
+
+        <!-- Barra inferior: copyright e links legais -->
+        <div class="footer__bottom">
+          <span class="footer__copy">
+            &copy; 2025 A&amp;R Cerimonial &amp; Assessoria. Todos os direitos reservados.
+          </span>
+          <div class="footer__legal">
+            <a href="privacidade.html" class="footer__legal-link">Política de Privacidade</a>
+            <a href="termos.html" class="footer__legal-link">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════
+       WHATSAPP FAB
+       Botão flutuante fixo no canto inferior direito.
+       Oculto por padrão — JS revela após o usuário rolar
+       para fora do Hero, sem competir com o CTA principal.
+  ══════════════════════════════════════════════════════════ -->
+    <a
+      id="whatsapp-btn"
+      class="whatsapp-fab"
+      href="https://wa.me/5534997089185?text=Olá!%20Vim%20pelo%20site%20da%20A%26R%20Assessoria%20%26%20Cerimonial%20e%20gostaria%20de%20mais%20informações."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar com a A&amp;R Cerimonial no WhatsApp"
+    >
+      <!-- Ícone oficial WhatsApp -->
+      <svg
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+          fill="currentColor"
+        />
+      </svg>
+
+      <!-- Tooltip: visível no hover em desktop -->
+      <span class="whatsapp-fab__tooltip" aria-hidden="true">
+        Falar no WhatsApp
+      </span>
+    </a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
