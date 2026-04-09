@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Termos de Uso da A&R Cerimonial & Assessoria. Condições para utilização do nosso site."
+    />
+    <title>Termos de Uso — A&amp;R Cerimonial &amp; Assessoria</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── Estilos das páginas legais ── */
+      .legal-page {
+        background: var(--color-surface-base);
+        padding-top: 120px;
+        padding-bottom: var(--sp-32);
+        min-height: 70vh;
+      }
+      .legal-back {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--sp-2);
+        font-family: var(--font-sans);
+        font-size: .875rem;
+        font-weight: 500;
+        color: var(--color-brand-secondary);
+        text-decoration: none;
+        margin-bottom: var(--sp-10);
+        transition: gap 200ms;
+      }
+      .legal-back::before { content: '←'; }
+      .legal-back:hover { gap: var(--sp-3); }
+      .legal-page__header {
+        text-align: center;
+        margin-bottom: var(--sp-16);
+        padding-bottom: var(--sp-10);
+        border-bottom: 1px solid var(--color-border);
+      }
+      .legal-page__kicker {
+        display: inline-block;
+        font-family: var(--font-sans);
+        font-size: .75rem;
+        font-weight: 600;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: var(--color-brand-secondary);
+        margin-bottom: var(--sp-4);
+      }
+      .legal-page__title {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 300;
+        line-height: 1.15;
+        color: var(--color-text-primary);
+        margin-bottom: var(--sp-4);
+      }
+      .legal-page__date {
+        font-family: var(--font-sans);
+        font-size: .875rem;
+        color: var(--color-text-muted);
+        font-weight: 300;
+      }
+      .legal-page__body { max-width: 760px; margin: 0 auto; }
+      .legal-page__intro {
+        font-family: var(--font-sans);
+        font-size: 1.0625rem;
+        font-weight: 300;
+        line-height: 1.8;
+        color: var(--color-text-secondary);
+        margin-bottom: var(--sp-12);
+      }
+      .legal-section { margin-bottom: var(--sp-10); }
+      .legal-section__title {
+        font-family: var(--font-serif);
+        font-size: 1.375rem;
+        font-weight: 400;
+        color: var(--color-text-primary);
+        margin-bottom: var(--sp-4);
+        padding-bottom: var(--sp-2);
+        border-bottom: 1px solid var(--color-border);
+      }
+      .legal-section__text {
+        font-family: var(--font-sans);
+        font-size: .9375rem;
+        font-weight: 300;
+        line-height: 1.85;
+        color: var(--color-text-secondary);
+        margin-bottom: var(--sp-3);
+      }
+      .legal-section__list {
+        list-style: none;
+        padding: 0;
+        margin: var(--sp-3) 0;
+      }
+      .legal-section__list li {
+        font-family: var(--font-sans);
+        font-size: .9375rem;
+        font-weight: 300;
+        line-height: 1.7;
+        color: var(--color-text-secondary);
+        padding: var(--sp-1) 0 var(--sp-1) var(--sp-5);
+        position: relative;
+      }
+      .legal-section__list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: .65em;
+        width: 5px;
+        height: 1px;
+        background: var(--color-brand-secondary);
+      }
+      .legal-contact-box {
+        background: var(--color-surface-muted);
+        border: var(--border-accent);
+        padding: var(--sp-8) var(--sp-10);
+        margin-top: var(--sp-12);
+        text-align: center;
+      }
+      .legal-contact-box__label {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: .75rem;
+        font-weight: 600;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: var(--color-brand-secondary);
+        margin-bottom: var(--sp-3);
+      }
+      .legal-contact-box__text {
+        font-family: var(--font-sans);
+        font-size: .9375rem;
+        font-weight: 300;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        margin-bottom: var(--sp-4);
+      }
+      .legal-contact-box__email {
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--color-brand-secondary);
+        text-decoration: none;
+        transition: opacity 200ms;
+      }
+      .legal-contact-box__email:hover { opacity: .75; }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+    <!-- Navegação -->
+    <header class="nav" id="site-nav" role="banner" data-scrolled="true">
+      <div class="nav__container">
+        <a href="index.html" aria-label="A&amp;R Cerimonial — voltar ao início">
+          <img
+            src="img/logo.png"
+            alt="A&amp;R Cerimonial"
+            class="nav__logo-img"
+            height="52"
+            loading="eager"
+          />
+        </a>
+
+        <nav class="nav__links" aria-label="Navegação principal">
+          <a href="index.html#inicio" class="nav__link">Início</a>
+          <a href="index.html#servicos" class="nav__link">Serviços</a>
+          <a href="index.html#sobre" class="nav__link">Sobre</a>
+          <a href="index.html#portfolio" class="nav__link">Portfólio</a>
+          <a href="index.html#depoimentos" class="nav__link">Depoimentos</a>
+          <a href="index.html#contato" class="nav__link">Contato</a>
+        </nav>
+
+        <a
+          href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20conversa."
+          class="btn btn--ghost-dark nav__cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Agende uma Conversa</a
+        >
+
+        <button
+          class="nav__hamburger"
+          aria-label="Abrir menu de navegação"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu de navegação"
+    >
+      <button class="mobile-menu__close" aria-label="Fechar menu">&#x2715;</button>
+      <nav class="mobile-menu__nav" aria-label="Menu mobile">
+        <a href="index.html#inicio" class="mobile-menu__link">Início</a>
+        <a href="index.html#servicos" class="mobile-menu__link">Serviços</a>
+        <a href="index.html#sobre" class="mobile-menu__link">Sobre</a>
+        <a href="index.html#portfolio" class="mobile-menu__link">Portfólio</a>
+        <a href="index.html#depoimentos" class="mobile-menu__link">Depoimentos</a>
+        <a href="index.html#contato" class="mobile-menu__link">Contato</a>
+      </nav>
+      <a
+        href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20conversa."
+        class="btn btn--gold mobile-menu__cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Agende uma Conversa</a
+      >
+    </div>
+
+    <main id="main-content">
+      <section class="legal-page">
+        <div class="container">
+          <div class="legal-page__body">
+
+            <a href="index.html" class="legal-back">Voltar ao site</a>
+
+            <header class="legal-page__header">
+              <span class="legal-page__kicker">Documento Legal</span>
+              <h1 class="legal-page__title">Termos de Uso</h1>
+              <p class="legal-page__date">Última atualização: abril de 2025</p>
+            </header>
+
+            <p class="legal-page__intro">
+              Ao acessar e utilizar o site da A&amp;R Cerimonial &amp; Assessoria,
+              você concorda com os termos e condições descritos a seguir. Pedimos que
+              leia este documento com atenção antes de navegar ou utilizar qualquer
+              funcionalidade oferecida pelo site.
+            </p>
+
+            <div class="legal-section">
+              <h2 class="legal-section__title">1. Uso do Site</h2>
+              <p class="legal-section__text">
+                Este site foi desenvolvido com a finalidade de apresentar os serviços
+                da A&amp;R Cerimonial &amp; Assessoria e facilitar o contato com
+                potenciais clientes. É permitido o uso pessoal e não comercial do
+                conteúdo disponibilizado.
+              </p>
+              <p class="legal-section__text">
+                É expressamente proibido:
+              </p>
+              <ul class="legal-section__list">
+                <li>Reproduzir, copiar ou distribuir o conteúdo do site sem autorização prévia por escrito</li>
+                <li>Utilizar o site para fins ilícitos ou que violem direitos de terceiros</li>
+                <li>Tentar acessar áreas restritas ou comprometer a segurança da plataforma</li>
+                <li>Enviar conteúdo falso, ofensivo ou enganoso por meio dos formulários de contato</li>
+              </ul>
+            </div>
+
+            <div class="legal-section">
+              <h2 class="legal-section__title">2. Propriedade Intelectual</h2>
+              <p class="legal-section__text">
+                Todo o conteúdo presente neste site — incluindo textos, imagens,
+                logotipos, layout, identidade visual, fotografias e demais elementos —
+                é de propriedade exclusiva da A&amp;R Cerimonial &amp; Assessoria ou
+                de seus parceiros, estando protegido pela legislação brasileira de
+                direitos autorais (Lei n.º 9.610/1998).
+              </p>
+              <p class="legal-section__text">
+                A reprodução parcial ou total do conteúdo sem autorização expressa é
+                vedada e sujeita às penalidades legais cabíveis.
+              </p>
+            </div>
+
+            <div class="legal-section">
+              <h2 class="legal-section__title">3. Responsabilidade</h2>
+              <p class="legal-section__text">
+                A A&amp;R Cerimonial &amp; Assessoria emprega esforços para manter
+                as informações do site atualizadas e precisas, mas não garante que o
+                conteúdo esteja isento de erros ou omissões.
+              </p>
+              <p class="legal-section__text">
+                Não nos responsabilizamos por:
+              </p>
+              <ul class="legal-section__list">
+                <li>Danos decorrentes do uso ou impossibilidade de uso do site</li>
+                <li>Interrupções temporárias de serviço por manutenção ou falhas técnicas</li>
+                <li>Conteúdo de sites de terceiros acessados por meio de links externos</li>
+              </ul>
+            </div>
+
+            <div class="legal-section">
+              <h2 class="legal-section__title">4. Links Externos</h2>
+              <p class="legal-section__text">
+                Este site pode conter links para plataformas externas, como Instagram
+                e WhatsApp, para facilitar a comunicação e o acesso ao nosso
+                portfólio. Esses links são fornecidos apenas para conveniência e não
+                implicam endosso ou responsabilidade sobre o conteúdo das plataformas
+                de destino.
+              </p>
+              <p class="legal-section__text">
+                Ao acessar qualquer link externo, você estará sujeito aos termos e
+                políticas de privacidade do respectivo serviço.
+              </p>
+            </div>
+
+            <div class="legal-section">
+              <h2 class="legal-section__title">5. Alterações</h2>
+              <p class="legal-section__text">
+                Reservamo-nos o direito de atualizar estes Termos de Uso a qualquer
+                momento, sem aviso prévio. As alterações entram em vigor na data de
+                sua publicação nesta página. Recomendamos a leitura periódica deste
+                documento para manter-se informado sobre eventuais mudanças.
+              </p>
+              <p class="legal-section__text">
+                O uso continuado do site após qualquer alteração constitui aceitação
+                tácita dos novos termos.
+              </p>
+            </div>
+
+            <div class="legal-section">
+              <h2 class="legal-section__title">6. Contato</h2>
+              <p class="legal-section__text">
+                Em caso de dúvidas sobre estes Termos de Uso, entre em contato
+                conosco pelo canal abaixo. Respondemos em horário comercial,
+                segunda a sábado, das 09h às 18h.
+              </p>
+            </div>
+
+            <div class="legal-contact-box">
+              <span class="legal-contact-box__label">Fale Conosco</span>
+              <p class="legal-contact-box__text">
+                Dúvidas sobre nossos termos? Estamos à disposição.
+              </p>
+              <a
+                href="mailto:contatoarcerimonial@gmail.com"
+                class="legal-contact-box__email"
+              >contatoarcerimonial@gmail.com</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer__grid">
+
+          <div class="footer__brand">
+            <span class="footer__logo" aria-label="A&amp;R Cerimonial">
+              <img
+                src="img/logo.png"
+                alt="A&amp;R Cerimonial"
+                class="footer__logo-img"
+                height="68"
+                loading="lazy"
+              />
+            </span>
+            <p class="footer__tagline">
+              Celebrações extraordinárias,<br />memórias eternas.
+            </p>
+            <div class="footer__social" aria-label="Redes sociais">
+              <a
+                href="https://instagram.com/arcerimoniale_"
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram @arcerimoniale_"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+                </svg>
+              </a>
+              <a
+                href="https://wa.me/5534997089185?text=Olá!%20Vim%20pelo%20site%20da%20A%26R%20Assessoria%20%26%20Cerimonial%20e%20gostaria%20de%20mais%20informações."
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer__col">
+            <span class="footer__col-label">Páginas</span>
+            <nav aria-label="Links do rodapé — páginas">
+              <a href="index.html#sobre" class="footer__link">Sobre Nós</a>
+              <a href="index.html#servicos" class="footer__link">Serviços</a>
+              <a href="index.html#portfolio" class="footer__link">Portfólio</a>
+              <a
+                href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+                class="footer__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Contato</a>
+            </nav>
+          </div>
+
+          <div class="footer__col">
+            <span class="footer__col-label">Serviços</span>
+            <div aria-label="Serviços oferecidos">
+              <span class="footer__link footer__link--static">Cerimonial Completo</span>
+              <span class="footer__link footer__link--static">Assessoria de Casamento</span>
+              <span class="footer__link footer__link--static">Decoração &amp; Florais</span>
+              <span class="footer__link footer__link--static">Festas &amp; Eventos</span>
+            </div>
+          </div>
+
+          <div class="footer__col">
+            <span class="footer__col-label">Contato</span>
+            <a
+              href="https://wa.me/5534997089185?text=Olá!%20Vim%20pelo%20site%20da%20A%26R%20Assessoria%20%26%20Cerimonial%20e%20gostaria%20de%20mais%20informações."
+              class="footer__contact-item footer__contact-item--phone"
+              target="_blank"
+              rel="noopener noreferrer"
+            >+55 34 99708-9185</a>
+            <a
+              href="mailto:contatoarcerimonial@gmail.com"
+              class="footer__contact-item footer__contact-item--email"
+            >contatoarcerimonial@gmail.com</a>
+            <span class="footer__contact-item">Uberaba, MG — Brasil</span>
+            <span class="footer__contact-item">Seg–Sáb, 09h–18h</span>
+          </div>
+
+        </div>
+
+        <div class="footer__bottom">
+          <span class="footer__copy">
+            &copy; 2025 A&amp;R Cerimonial &amp; Assessoria. Todos os direitos reservados.
+          </span>
+          <div class="footer__legal">
+            <a href="privacidade.html" class="footer__legal-link">Política de Privacidade</a>
+            <a href="termos.html" class="footer__legal-link" aria-current="page">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

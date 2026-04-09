@@ -1,0 +1,97 @@
+squad:
+  code: javascript-squad
+  name: JavaScript Squad
+  description: Full-stack JavaScript and TypeScript development — React, Node.js, Vue, testing, and modern web architecture
+  icon: zap
+  version: "1.0.0"
+  category: development
+  tags:
+    - javascript
+    - typescript
+    - react
+    - nodejs
+    - vue
+    - nextjs
+    - fullstack
+
+  company: "_expxagents/_memory/company.md"
+  preferences: "_expxagents/_memory/preferences.md"
+  memory: "_memory/memories.md"
+
+  target_audience: "JavaScript and TypeScript developers"
+  platform: "Report"
+  format: "javascript-development"
+
+  skills:
+    - web_search
+    - web_fetch
+
+  schedule:
+    enabled: true
+
+  data: []
+
+  agents:
+    - id: js-chief
+      name: JavaScript Chief
+      icon: zap
+      prompt: agents/js-chief.agent.md
+    - id: code-quality-advisor
+      name: Code Quality Advisor
+      icon: check-circle
+      prompt: agents/code-quality-advisor.agent.md
+    - id: devops-engineer
+      name: DevOps Engineer
+      icon: server
+      prompt: agents/devops-engineer.agent.md
+    - id: react-specialist
+      name: React Specialist
+      icon: layers
+      prompt: agents/react-specialist.agent.md
+    - id: node-specialist
+      name: Node.js Specialist
+      icon: cpu
+      prompt: agents/node-specialist.agent.md
+    - id: vue-specialist
+      name: Vue Specialist
+      icon: triangle
+      prompt: agents/vue-specialist.agent.md
+    - id: fullstack-architect
+      name: Fullstack Architect
+      icon: globe
+      prompt: agents/fullstack-architect.agent.md
+    - id: test-engineer
+      name: Test Engineer
+      icon: shield
+      prompt: agents/test-engineer.agent.md
+    - id: database-engineer
+      name: Database Engineer
+      icon: database
+      prompt: agents/database-engineer.agent.md
+
+  pipeline:
+    steps:
+      - id: step-01
+        agent: js-chief
+        label: Diagnose JavaScript/TypeScript challenge and identify relevant specialists
+        execution: inline
+      - id: step-02
+        agent: js-chief
+        label: Route to specialist agents for domain-specific implementation
+        deliverFrom: js-chief
+        execution: inline
+      - id: step-03
+        agent: js-chief
+        label: Architect the solution and validate design decisions
+        deliverFrom: js-chief
+        execution: inline
+      - id: step-04
+        agent: js-chief
+        label: Implement and review code against JavaScript/TypeScript best practices
+        deliverFrom: js-chief
+        execution: inline
+      - id: step-05
+        agent: js-chief
+        label: Final review and JavaScript Development Report delivery
+        deliverFrom: js-chief
+        execution: inline
