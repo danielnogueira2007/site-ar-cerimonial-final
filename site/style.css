@@ -460,6 +460,14 @@ input, textarea, select { font-family: inherit; }
 }
 .mobile-menu__link:hover { color: var(--color-brand-secondary); }
 
+/* Sub-itens de Serviços — mesmo estilo dos itens principais */
+.mobile-menu__nav .mobile-menu__link--sub {
+  font-family: var(--font-serif);
+  font-size: clamp(1.375rem, 4.5vw, 1.875rem);
+  font-weight: 300;
+  opacity: .82;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    8. HERO — Seção 1
    Primeira impressão. 100vh com foto, overlay escuro e texto.
