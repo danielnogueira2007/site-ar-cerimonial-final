@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cerimonial completo para Batizados. A&R Cerimonial cuida de cada detalhe para que este momento de fé e amor seja vivido com tranquilidade e significado."
+    />
+    <title>Batizados — A&amp;R Cerimonial &amp; Assessoria</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── Hero ── */
+      .btd-hero {
+        position: relative;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: var(--color-brand-primary);
+      }
+      .btd-hero__bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('img%20batizado/batizado1.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: .52;
+      }
+      .btd-hero__content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: var(--sp-10) var(--sp-6);
+        max-width: 780px;
+        margin: 0 auto;
+      }
+      .btd-hero__kicker {
+        display: inline-block;
+        font-family: var(--font-script);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        color: var(--color-brand-secondary);
+        margin-bottom: var(--sp-4);
+        opacity: 0;
+        transform: translateY(12px);
+        animation: btdFadeUp 0.7s 0.2s ease forwards;
+      }
+      .btd-hero__title {
+        font-family: var(--font-serif);
+        font-size: clamp(2.25rem, 5.5vw, 4rem);
+        font-weight: 300;
+        line-height: 1.12;
+        color: #fff;
+        margin-bottom: var(--sp-6);
+        opacity: 0;
+        transform: translateY(16px);
+        animation: btdFadeUp 0.75s 0.4s ease forwards;
+      }
+      .btd-hero__subtitle {
+        font-family: var(--font-sans);
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        font-weight: 300;
+        color: rgba(255,255,255,.82);
+        line-height: 1.7;
+        margin-bottom: var(--sp-10);
+        opacity: 0;
+        transform: translateY(16px);
+        animation: btdFadeUp 0.75s 0.6s ease forwards;
+      }
+      .btd-hero__cta {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: btdFadeUp 0.75s 0.8s ease forwards;
+      }
+      @keyframes btdFadeUp {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .btd-hero__kicker,
+        .btd-hero__title,
+        .btd-hero__subtitle,
+        .btd-hero__cta { animation: none; opacity: 1; transform: none; }
+      }
+
+      /* ── Descrição ── */
+      .btd-desc {
+        background: var(--color-surface-base);
+        padding: var(--sp-24) 0;
+      }
+      .btd-desc__inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--sp-12);
+        align-items: center;
+      }
+      @media (min-width: 900px) {
+        .btd-desc__inner { grid-template-columns: 1fr 1fr; gap: var(--sp-16); }
+      }
+      .btd-desc__img {
+        overflow: hidden;
+        line-height: 0;
+      }
+      .btd-desc__img img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        display: block;
+      }
+      .btd-desc__copy { }
+      .btd-desc__text {
+        font-family: var(--font-sans);
+        font-size: 1.0625rem;
+        font-weight: 300;
+        line-height: 1.85;
+        color: var(--color-text-secondary);
+      }
+      .btd-desc__text + .btd-desc__text {
+        margin-top: var(--sp-5);
+      }
+      .btd-desc__highlight {
+        font-family: var(--font-serif);
+        font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+        font-weight: 400;
+        font-style: italic;
+        color: var(--color-text-primary);
+        line-height: 1.45;
+        margin-top: var(--sp-8);
+        padding: var(--sp-6) var(--sp-8);
+        border-left: 2px solid var(--color-brand-secondary);
+      }
+
+      /* ── Faixa editorial ── */
+      .btd-strip {
+        height: clamp(280px, 40vw, 520px);
+        overflow: hidden;
+        line-height: 0;
+      }
+      .btd-strip img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      /* ── Como Funciona ── */
+      .btd-steps {
+        background: var(--color-surface-muted);
+        padding: var(--sp-24) 0;
+      }
+      .btd-steps__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--sp-8);
+        margin-top: var(--sp-14);
+      }
+      @media (min-width: 768px) {
+        .btd-steps__grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
+      }
+      .btd-step {
+        background: var(--color-surface-base);
+        padding: var(--sp-10) var(--sp-8);
+        text-align: center;
+        position: relative;
+      }
+      .btd-step__number {
+        font-family: var(--font-serif);
+        font-size: 3.5rem;
+        font-weight: 300;
+        color: var(--color-brand-secondary);
+        opacity: .35;
+        line-height: 1;
+        margin-bottom: var(--sp-4);
+        display: block;
+      }
+      .btd-step__title {
+        font-family: var(--font-serif);
+        font-size: 1.375rem;
+        font-weight: 400;
+        color: var(--color-text-primary);
+        margin-bottom: var(--sp-4);
+      }
+      .btd-step__text {
+        font-family: var(--font-sans);
+        font-size: .9375rem;
+        font-weight: 300;
+        line-height: 1.8;
+        color: var(--color-text-secondary);
+      }
+      @media (min-width: 768px) {
+        .btd-step:not(:last-child)::after {
+          content: '';
+          position: absolute;
+          top: var(--sp-10);
+          right: -1px;
+          width: 1px;
+          height: 60px;
+          background: var(--color-border);
+        }
+      }
+
+      /* ── Diferenciais ── */
+      .btd-diff {
+        background: var(--color-surface-base);
+        padding: var(--sp-24) 0;
+      }
+      .btd-diff__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--sp-6);
+        margin-top: var(--sp-14);
+      }
+      @media (min-width: 600px) {
+        .btd-diff__grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (min-width: 1024px) {
+        .btd-diff__grid { grid-template-columns: repeat(3, 1fr); }
+      }
+      .btd-diff__card {
+        border: var(--border-accent);
+        padding: var(--sp-8);
+        transition: box-shadow 250ms;
+      }
+      .btd-diff__card:hover {
+        box-shadow: 0 8px 32px rgba(30,61,53,.08);
+      }
+      .btd-diff__icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: var(--sp-5);
+        color: var(--color-brand-secondary);
+      }
+      .btd-diff__title {
+        font-family: var(--font-serif);
+        font-size: 1.1875rem;
+        font-weight: 400;
+        color: var(--color-text-primary);
+        margin-bottom: var(--sp-3);
+      }
+      .btd-diff__text {
+        font-family: var(--font-sans);
+        font-size: .9rem;
+        font-weight: 300;
+        line-height: 1.75;
+        color: var(--color-text-secondary);
+      }
+
+      /* ── CTA Final ── */
+      .btd-cta {
+        position: relative;
+        overflow: hidden;
+        padding: var(--sp-24) 0;
+        background-color: var(--color-brand-primary);
+        text-align: center;
+      }
+      .btd-cta__bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('img%20batizado/batizado4.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: .22;
+      }
+      .btd-cta__inner {
+        position: relative;
+        z-index: 1;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 var(--sp-6);
+      }
+      .btd-cta__script {
+        font-family: var(--font-script);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        color: var(--color-brand-secondary);
+        display: block;
+        margin-bottom: var(--sp-4);
+      }
+      .btd-cta__title {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        font-weight: 300;
+        color: #fff;
+        line-height: 1.2;
+        margin-bottom: var(--sp-6);
+      }
+      .btd-cta__text {
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255,255,255,.78);
+        line-height: 1.75;
+        margin-bottom: var(--sp-10);
+      }
+
+      /* ── Dropdown de Serviços ── */
+      .nav__item { position: relative; }
+      .nav__link--has-dropdown {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font: inherit;
+        padding: 0;
+      }
+      .nav__chevron {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: rotate(45deg) translateY(-2px);
+        transition: transform 220ms;
+        flex-shrink: 0;
+      }
+      .nav__item[aria-expanded="true"] .nav__chevron {
+        transform: rotate(-135deg) translateY(2px);
+      }
+      .nav__dropdown {
+        position: absolute;
+        top: calc(100% + 20px);
+        left: 50%;
+        transform: translateX(-50%) translateY(8px);
+        background: var(--color-brand-primary);
+        min-width: 230px;
+        padding: var(--sp-2) 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 200ms, transform 200ms, visibility 200ms;
+        z-index: 300;
+        box-shadow: 0 16px 48px rgba(0,0,0,.25);
+        pointer-events: none;
+      }
+      .nav__dropdown::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 0;
+        right: 0;
+        height: 20px;
+      }
+      .nav__item:hover .nav__dropdown,
+      .nav__item:focus-within .nav__dropdown,
+      .nav__item[aria-expanded="true"] .nav__dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+      .nav__dropdown-link {
+        display: block;
+        padding: var(--sp-3) var(--sp-6);
+        font-family: var(--font-sans);
+        font-size: .875rem;
+        font-weight: 400;
+        letter-spacing: .02em;
+        color: rgba(255,255,255,.78);
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color 150ms, background 150ms;
+      }
+      .nav__dropdown-link:hover {
+        color: var(--color-brand-secondary);
+        background: rgba(255,255,255,.05);
+      }
+      .nav__dropdown-link--active {
+        color: var(--color-brand-secondary);
+        font-weight: 500;
+      }
+      .nav__link--active {
+        color: var(--color-brand-secondary) !important;
+        opacity: 1 !important;
+      }
+
+      /* ── Mobile menu — Serviços expandido ── */
+      .mobile-menu__section-label {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: .6875rem;
+        font-weight: 600;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: var(--color-brand-secondary);
+        margin-top: var(--sp-6);
+        margin-bottom: var(--sp-2);
+        opacity: .85;
+      }
+      .mobile-menu__link--sub {
+        padding-left: var(--sp-5);
+        font-size: .9375rem;
+        opacity: .75;
+      }
+      .mobile-menu__link--active {
+        color: var(--color-brand-secondary) !important;
+        opacity: 1 !important;
+      }
+      .mobile-menu__rule {
+        border: none;
+        border-top: 1px solid rgba(255,255,255,.1);
+        margin: var(--sp-4) 0 var(--sp-2);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+    <!-- Navegação -->
+    <header class="nav" id="site-nav" role="banner" data-scrolled="true">
+      <div class="nav__container">
+        <a href="index.html" aria-label="A&amp;R Cerimonial — voltar ao início">
+          <img
+            src="img/logo.png"
+            alt="A&amp;R Cerimonial"
+            class="nav__logo-img"
+            height="52"
+            loading="eager"
+          />
+        </a>
+
+        <nav class="nav__links" aria-label="Navegação principal">
+          <a href="index.html" class="nav__link">Início</a>
+
+          <div class="nav__item" aria-expanded="false">
+            <a
+              href="index.html#servicos"
+              class="nav__link nav__link--active nav__link--has-dropdown"
+              aria-haspopup="menu"
+              id="nav-services-trigger"
+            >Serviços <span class="nav__chevron" aria-hidden="true"></span></a>
+
+            <div class="nav__dropdown" role="menu" aria-labelledby="nav-services-trigger">
+              <a href="index.html#servicos"       class="nav__dropdown-link" role="menuitem">Casamentos</a>
+              <a href="cha-de-bebe.html"         class="nav__dropdown-link" role="menuitem">Chá de Bebê</a>
+              <a href="cha-revelacao.html"        class="nav__dropdown-link" role="menuitem">Chá Revelação</a>
+              <a href="batizados.html"            class="nav__dropdown-link nav__dropdown-link--active" role="menuitem" aria-current="page">Batizados</a>
+              <a href="bodas.html"                class="nav__dropdown-link" role="menuitem">Bodas</a>
+              <a href="aniversarios.html"         class="nav__dropdown-link" role="menuitem">Aniversários</a>
+              <a href="eventos-corporativos.html" class="nav__dropdown-link" role="menuitem">Eventos Corporativos</a>
+              <a href="leiloes.html"              class="nav__dropdown-link" role="menuitem">Leilões</a>
+              <a href="feiras-e-exposicoes.html"  class="nav__dropdown-link" role="menuitem">Feiras e Exposições</a>
+            </div>
+          </div>
+
+          <a href="index.html#sobre"       class="nav__link">Sobre</a>
+          <a href="index.html#portfolio"   class="nav__link">Portfólio</a>
+          <a href="index.html#depoimentos" class="nav__link">Depoimentos</a>
+          <a href="index.html#contato"     class="nav__link">Contato</a>
+        </nav>
+
+        <a
+          href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20cerimonial%20para%20Batizados."
+          class="btn btn--ghost-dark nav__cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Agende uma Conversa</a
+        >
+
+        <button
+          class="nav__hamburger"
+          aria-label="Abrir menu de navegação"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu de navegação"
+    >
+      <button class="mobile-menu__close" aria-label="Fechar menu">&#x2715;</button>
+      <nav class="mobile-menu__nav" aria-label="Menu mobile">
+        <a href="index.html" class="mobile-menu__link">Início</a>
+
+        <span class="mobile-menu__section-label">Serviços</span>
+        <a href="index.html#servicos"       class="mobile-menu__link mobile-menu__link--sub">Casamentos</a>
+        <a href="cha-de-bebe.html"         class="mobile-menu__link mobile-menu__link--sub">Chá de Bebê</a>
+        <a href="cha-revelacao.html"        class="mobile-menu__link mobile-menu__link--sub">Chá Revelação</a>
+        <a href="batizados.html"            class="mobile-menu__link mobile-menu__link--sub mobile-menu__link--active">Batizados</a>
+        <a href="bodas.html"               class="mobile-menu__link mobile-menu__link--sub">Bodas</a>
+        <a href="aniversarios.html"        class="mobile-menu__link mobile-menu__link--sub">Aniversários</a>
+        <a href="eventos-corporativos.html" class="mobile-menu__link mobile-menu__link--sub">Eventos Corporativos</a>
+        <a href="leiloes.html"             class="mobile-menu__link mobile-menu__link--sub">Leilões</a>
+        <a href="feiras-e-exposicoes.html"  class="mobile-menu__link mobile-menu__link--sub">Feiras e Exposições</a>
+
+        <hr class="mobile-menu__rule" aria-hidden="true" />
+        <a href="index.html#sobre"       class="mobile-menu__link">Sobre</a>
+        <a href="index.html#portfolio"   class="mobile-menu__link">Portfólio</a>
+        <a href="index.html#depoimentos" class="mobile-menu__link">Depoimentos</a>
+        <a href="index.html#contato"     class="mobile-menu__link">Contato</a>
+      </nav>
+      <a
+        href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20cerimonial%20para%20Batizados."
+        class="btn btn--gold mobile-menu__cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Agende uma Conversa</a
+      >
+    </div>
+
+    <main id="main-content">
+
+      <!-- ── 1. HERO ── -->
+      <section class="btd-hero" aria-labelledby="btd-hero-title">
+        <div class="btd-hero__bg" aria-hidden="true"></div>
+        <div class="btd-hero__content">
+          <span class="btd-hero__kicker">Batizados</span>
+          <h1 class="btd-hero__title" id="btd-hero-title">
+            Cerimonial para<br />Batizados
+          </h1>
+          <p class="btd-hero__subtitle">
+            Organização completa para um momento especial<br />e cheio de significado
+          </p>
+          <div class="btd-hero__cta">
+            <a
+              href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20cerimonial%20para%20Batizados."
+              class="btn btn--gold"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Agende uma Conversa</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 2. DESCRIÇÃO ── -->
+      <section class="btd-desc" aria-labelledby="btd-desc-title">
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">Fé, família e amor</span>
+            <h2 class="display-lg" id="btd-desc-title">Um momento sagrado e inesquecível</h2>
+            <div class="gold-divider gold-divider--center" aria-hidden="true"></div>
+          </div>
+
+          <div class="btd-desc__inner reveal">
+            <div class="btd-desc__img">
+              <img
+                src="img%20batizado/batizado2.jpg"
+                alt="Cerimônia de batizado organizada pela A&amp;R Cerimonial"
+                loading="lazy"
+              />
+            </div>
+            <div class="btd-desc__copy">
+              <p class="btd-desc__text">
+                O batizado é muito mais do que uma cerimônia — é o primeiro sacramento
+                de uma nova vida, o momento em que a família se une em torno da fé
+                para acolher e abençoar quem acabou de chegar ao mundo. É um dia
+                carregado de significado, emoção e memórias que durarão para sempre.
+              </p>
+              <p class="btd-desc__text">
+                Na A&amp;R Cerimonial, entendemos a delicadeza e o peso simbólico
+                deste momento. Cuidamos de cada detalhe — da cerimônia religiosa
+                à festa — para que a família possa estar presente de verdade: nos
+                abraços, nas orações, nas lágrimas de emoção e nas fotos que contarão
+                esta história por gerações.
+              </p>
+              <blockquote class="btd-desc__highlight">
+                "Um dia de fé e amor,<br />organizado com o cuidado que ele merece."
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Faixa editorial ── -->
+      <div class="btd-strip" role="img" aria-label="Decoração de cerimônia de batizado">
+        <img
+          src="img%20batizado/batizado3.jpg"
+          alt="Detalhes da decoração de batizado"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- ── 3. COMO FUNCIONA ── -->
+      <section class="btd-steps" aria-labelledby="btd-steps-title">
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">Nosso processo</span>
+            <h2 class="display-lg" id="btd-steps-title">Como funciona</h2>
+            <div class="gold-divider gold-divider--center" aria-hidden="true"></div>
+            <p class="section-intro__subtitle">
+              Três etapas que transformam este momento sagrado em uma celebração inesquecível.
+            </p>
+          </div>
+
+          <div class="btd-steps__grid">
+
+            <article class="btd-step reveal">
+              <span class="btd-step__number" aria-hidden="true">01</span>
+              <h3 class="btd-step__title">Planejamento da Cerimônia</h3>
+              <p class="btd-step__text">
+                Tudo começa com uma conversa. Entendemos o estilo da família, a
+                tradição religiosa, o número de convidados e como vocês imaginam
+                este dia. Alinhamos cada detalhe — da escolha do local religioso
+                à decoração — para que tudo reflita os valores e a história de
+                quem será batizado.
+              </p>
+            </article>
+
+            <article class="btd-step reveal">
+              <span class="btd-step__number" aria-hidden="true">02</span>
+              <h3 class="btd-step__title">Organização do Evento</h3>
+              <p class="btd-step__text">
+                Com o briefing definido, estruturamos todo o evento: decoração
+                da igreja e da festa, buffet, convites, lembrancinha, cronograma
+                detalhado e coordenação com os fornecedores. Você acompanha cada
+                decisão com tranquilidade, sem precisar correr atrás de nada.
+              </p>
+            </article>
+
+            <article class="btd-step reveal">
+              <span class="btd-step__number" aria-hidden="true">03</span>
+              <h3 class="btd-step__title">Coordenação no Dia</h3>
+              <p class="btd-step__text">
+                No dia do batizado, nossa equipe está presente desde a montagem
+                até o encerramento da festa — gerenciando fornecedores, horários
+                e qualquer imprevisto. A família fica livre para viver cada instante
+                com presença e leveza, sem preocupações operacionais.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 4. DIFERENCIAIS ── -->
+      <section class="btd-diff" aria-labelledby="btd-diff-title">
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">Por que nos escolher</span>
+            <h2 class="display-lg" id="btd-diff-title">Nossos diferenciais</h2>
+            <div class="gold-divider gold-divider--center" aria-hidden="true"></div>
+            <p class="section-intro__subtitle">
+              O que torna a A&amp;R Cerimonial a escolha certa para o batizado do seu filho.
+            </p>
+          </div>
+
+          <div class="btd-diff__grid">
+
+            <article class="btd-diff__card reveal">
+              <svg class="btd-diff__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+              </svg>
+              <h3 class="btd-diff__title">Atenção aos detalhes</h3>
+              <p class="btd-diff__text">
+                Cada elemento do batizado é pensado com cuidado: a decoração da
+                igreja, a mesa do bolo, as lembranças, a iluminação da festa.
+                Nenhum detalhe é pequeno demais para merecer atenção.
+              </p>
+            </article>
+
+            <article class="btd-diff__card reveal">
+              <svg class="btd-diff__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              <h3 class="btd-diff__title">Experiência em eventos familiares</h3>
+              <p class="btd-diff__text">
+                Entendemos a dinâmica de reuniões familiares — com crianças,
+                avós, padrinhos e madrinhas vindos de longe. Sabemos como
+                criar um ambiente acolhedor e organizado para todos.
+              </p>
+            </article>
+
+            <article class="btd-diff__card reveal">
+              <svg class="btd-diff__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+              <h3 class="btd-diff__title">Organização completa</h3>
+              <p class="btd-diff__text">
+                Da cerimônia religiosa à festa de comemoração, cuidamos de tudo.
+                Uma única equipe gerenciando todas as etapas, com comunicação
+                clara e cronograma impecável do início ao fim.
+              </p>
+            </article>
+
+            <article class="btd-diff__card reveal">
+              <svg class="btd-diff__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+              <h3 class="btd-diff__title">Tranquilidade para os pais</h3>
+              <p class="btd-diff__text">
+                Os pais merecem estar presentes no batizado do filho — não
+                gerenciando fornecedores. Assumimos toda a operação para que
+                vocês vivam cada momento com plena presença e emoção.
+              </p>
+            </article>
+
+            <article class="btd-diff__card reveal">
+              <svg class="btd-diff__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <h3 class="btd-diff__title">Personalização e elegância</h3>
+              <p class="btd-diff__text">
+                Desenvolvemos propostas personalizadas ao estilo e à tradição de
+                cada família — sem pacotes prontos. A identidade visual do batizado
+                reflete quem vocês são e o que este dia significa para a família.
+              </p>
+            </article>
+
+            <article class="btd-diff__card reveal">
+              <svg class="btd-diff__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              <h3 class="btd-diff__title">Atendimento próximo e acolhedor</h3>
+              <p class="btd-diff__text">
+                Acompanhamos a família em cada etapa com comunicação clara e
+                resposta ágil. Sabemos o quanto este momento é especial e
+                tratamos cada batizado com a dedicação que ele merece.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 5. CALL TO ACTION ── -->
+      <section class="btd-cta" aria-labelledby="btd-cta-title">
+        <div class="btd-cta__bg" aria-hidden="true"></div>
+        <div class="btd-cta__inner">
+          <span class="btd-cta__script reveal">Um novo começo</span>
+          <h2 class="btd-cta__title reveal" id="btd-cta-title">
+            Celebre este momento<br />com quem sabe cuidar
+          </h2>
+          <p class="btd-cta__text reveal">
+            Entre em contato conosco e descubra como a A&amp;R Cerimonial pode
+            transformar o batizado do seu filho em uma celebração inesquecível —
+            com toda a delicadeza, organização e carinho que este dia merece.
+            Atendemos Uberaba, região do Triângulo Mineiro e todo o Brasil.
+          </p>
+          <a
+            href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20cerimonial%20para%20Batizados."
+            class="btn btn--gold reveal"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Agende uma Conversa</a
+          >
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer__grid">
+
+          <div class="footer__brand">
+            <span class="footer__logo" aria-label="A&amp;R Cerimonial">
+              <img
+                src="img/logo.png"
+                alt="A&amp;R Cerimonial"
+                class="footer__logo-img"
+                height="68"
+                loading="lazy"
+              />
+            </span>
+            <p class="footer__tagline">
+              Celebrações extraordinárias,<br />memórias eternas.
+            </p>
+            <div class="footer__social" aria-label="Redes sociais">
+              <a
+                href="https://instagram.com/arcerimoniale_"
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram @arcerimoniale_"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+                </svg>
+              </a>
+              <a
+                href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20A%26R%20Assessoria%20%26%20Cerimonial%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer__col">
+            <span class="footer__col-label">Páginas</span>
+            <nav aria-label="Links do rodapé — páginas">
+              <a href="index.html#sobre"     class="footer__link">Sobre Nós</a>
+              <a href="index.html#servicos"  class="footer__link">Serviços</a>
+              <a href="index.html#portfolio" class="footer__link">Portfólio</a>
+              <a
+                href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+                class="footer__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Contato</a>
+            </nav>
+          </div>
+
+          <div class="footer__col">
+            <span class="footer__col-label">Serviços</span>
+            <div aria-label="Serviços oferecidos">
+              <span class="footer__link footer__link--static">Cerimonial Completo</span>
+              <span class="footer__link footer__link--static">Assessoria de Casamento</span>
+              <span class="footer__link footer__link--static">Decoração &amp; Florais</span>
+              <span class="footer__link footer__link--static">Festas &amp; Eventos</span>
+            </div>
+          </div>
+
+          <div class="footer__col">
+            <span class="footer__col-label">Contato</span>
+            <a
+              href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20A%26R%20Assessoria%20%26%20Cerimonial%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+              class="footer__contact-item footer__contact-item--phone"
+              target="_blank"
+              rel="noopener noreferrer"
+            >+55 34 99708-9185</a>
+            <a
+              href="mailto:contatoarcerimonial@gmail.com"
+              class="footer__contact-item footer__contact-item--email"
+            >contatoarcerimonial@gmail.com</a>
+            <span class="footer__contact-item">Uberaba, MG — Brasil</span>
+            <span class="footer__contact-item">Seg–Sáb, 09h–18h</span>
+          </div>
+
+        </div>
+
+        <div class="footer__bottom">
+          <span class="footer__copy">
+            &copy; 2025 A&amp;R Cerimonial &amp; Assessoria. Todos os direitos reservados.
+          </span>
+          <div class="footer__legal">
+            <a href="privacidade.html" class="footer__legal-link">Política de Privacidade</a>
+            <a href="termos.html"      class="footer__legal-link">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      /* Dropdown de Serviços — toggle por clique e teclado */
+      (function () {
+        var item    = document.querySelector('.nav__item');
+        var trigger = item && item.querySelector('.nav__link--has-dropdown');
+        if (!item || !trigger) return;
+
+        function close() { item.setAttribute('aria-expanded', 'false'); }
+        function open()  { item.setAttribute('aria-expanded', 'true');  }
+        function isOpen(){ return item.getAttribute('aria-expanded') === 'true'; }
+
+        trigger.addEventListener('click', function (e) {
+          e.preventDefault();
+          isOpen() ? close() : open();
+        });
+
+        document.addEventListener('click', function (e) {
+          if (!item.contains(e.target)) close();
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && isOpen()) { close(); trigger.focus(); }
+        });
+      })();
+    </script>
+  </body>
+</html>

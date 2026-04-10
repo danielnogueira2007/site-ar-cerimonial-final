@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cerimonial e assessoria para Feiras e Exposições. A&R Cerimonial organiza, coordena e conduz feiras e exposições com excelência, visibilidade e profissionalismo."
+    />
+    <title>Feiras e Exposições — A&amp;R Cerimonial &amp; Assessoria</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── Hero ── */
+      .fei-hero {
+        position: relative;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: var(--color-brand-primary);
+      }
+      .fei-hero__bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('img%20feiras%20e%20exposicoes/feira-exposicao-site1.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: .48;
+      }
+      .fei-hero__content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: var(--sp-10) var(--sp-6);
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      .fei-hero__kicker {
+        display: inline-block;
+        font-family: var(--font-script);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        color: var(--color-brand-secondary);
+        margin-bottom: var(--sp-4);
+        opacity: 0;
+        transform: translateY(12px);
+        animation: feiFadeUp 0.7s 0.2s ease forwards;
+      }
+      .fei-hero__title {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 5vw, 3.75rem);
+        font-weight: 300;
+        line-height: 1.12;
+        color: #fff;
+        margin-bottom: var(--sp-6);
+        opacity: 0;
+        transform: translateY(16px);
+        animation: feiFadeUp 0.75s 0.4s ease forwards;
+      }
+      .fei-hero__subtitle {
+        font-family: var(--font-sans);
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        font-weight: 300;
+        color: rgba(255,255,255,.82);
+        line-height: 1.7;
+        margin-bottom: var(--sp-10);
+        opacity: 0;
+        transform: translateY(16px);
+        animation: feiFadeUp 0.75s 0.6s ease forwards;
+      }
+      .fei-hero__cta {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: feiFadeUp 0.75s 0.8s ease forwards;
+      }
+      @keyframes feiFadeUp {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .fei-hero__kicker,
+        .fei-hero__title,
+        .fei-hero__subtitle,
+        .fei-hero__cta { animation: none; opacity: 1; transform: none; }
+      }
+
+      /* ── Descrição ── */
+      .fei-desc {
+        background: var(--color-surface-base);
+        padding: var(--sp-24) 0;
+      }
+      .fei-desc__inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--sp-12);
+        align-items: center;
+      }
+      @media (min-width: 900px) {
+        .fei-desc__inner { grid-template-columns: 1fr 1fr; gap: var(--sp-16); }
+      }
+      .fei-desc__img {
+        overflow: hidden;
+        line-height: 0;
+      }
+      .fei-desc__img img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        display: block;
+      }
+      .fei-desc__copy { }
+      .fei-desc__text {
+        font-family: var(--font-sans);
+        font-size: 1.0625rem;
+        font-weight: 300;
+        line-height: 1.85;
+        color: var(--color-text-secondary);
+      }
+      .fei-desc__text + .fei-desc__text { margin-top: var(--sp-5); }
+      .fei-desc__highlight {
+        font-family: var(--font-serif);
+        font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+        font-weight: 400;
+        font-style: italic;
+        color: var(--color-text-primary);
+        line-height: 1.45;
+        margin-top: var(--sp-8);
+        padding: var(--sp-6) var(--sp-8);
+        border-left: 2px solid var(--color-brand-secondary);
+      }
+
+      /* ── Faixa editorial ── */
+      .fei-strip {
+        height: clamp(280px, 40vw, 520px);
+        overflow: hidden;
+        line-height: 0;
+      }
+      .fei-strip img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      /* ── Como Funciona ── */
+      .fei-steps {
+        background: var(--color-surface-muted);
+        padding: var(--sp-24) 0;
+      }
+      .fei-steps__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--sp-8);
+        margin-top: var(--sp-14);
+      }
+      @media (min-width: 768px) {
+        .fei-steps__grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
+      }
+      .fei-step {
+        background: var(--color-surface-base);
+        padding: var(--sp-10) var(--sp-8);
+        text-align: center;
+        position: relative;
+      }
+      .fei-step__number {
+        font-family: var(--font-serif);
+        font-size: 3.5rem;
+        font-weight: 300;
+        color: var(--color-brand-secondary);
+        opacity: .35;
+        line-height: 1;
+        margin-bottom: var(--sp-4);
+        display: block;
+      }
+      .fei-step__title {
+        font-family: var(--font-serif);
+        font-size: 1.375rem;
+        font-weight: 400;
+        color: var(--color-text-primary);
+        margin-bottom: var(--sp-4);
+      }
+      .fei-step__text {
+        font-family: var(--font-sans);
+        font-size: .9375rem;
+        font-weight: 300;
+        line-height: 1.8;
+        color: var(--color-text-secondary);
+      }
+      @media (min-width: 768px) {
+        .fei-step:not(:last-child)::after {
+          content: '';
+          position: absolute;
+          top: var(--sp-10);
+          right: -1px;
+          width: 1px;
+          height: 60px;
+          background: var(--color-border);
+        }
+      }
+
+      /* ── Diferenciais ── */
+      .fei-diff {
+        background: var(--color-surface-base);
+        padding: var(--sp-24) 0;
+      }
+      .fei-diff__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--sp-6);
+        margin-top: var(--sp-14);
+      }
+      @media (min-width: 600px) {
+        .fei-diff__grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      .fei-diff__card {
+        border: var(--border-accent);
+        padding: var(--sp-8);
+        transition: box-shadow 250ms;
+      }
+      .fei-diff__card:hover { box-shadow: 0 8px 32px rgba(30,61,53,.08); }
+      .fei-diff__icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: var(--sp-5);
+        color: var(--color-brand-secondary);
+      }
+      .fei-diff__title {
+        font-family: var(--font-serif);
+        font-size: 1.1875rem;
+        font-weight: 400;
+        color: var(--color-text-primary);
+        margin-bottom: var(--sp-3);
+      }
+      .fei-diff__text {
+        font-family: var(--font-sans);
+        font-size: .9rem;
+        font-weight: 300;
+        line-height: 1.75;
+        color: var(--color-text-secondary);
+      }
+
+      /* ── CTA Final ── */
+      .fei-cta {
+        position: relative;
+        overflow: hidden;
+        padding: var(--sp-24) 0;
+        background-color: var(--color-brand-primary);
+        text-align: center;
+      }
+      .fei-cta__bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('img%20feiras%20e%20exposicoes/feira-exposicao-site4.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: .22;
+      }
+      .fei-cta__inner {
+        position: relative;
+        z-index: 1;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 var(--sp-6);
+      }
+      .fei-cta__script {
+        font-family: var(--font-script);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        color: var(--color-brand-secondary);
+        display: block;
+        margin-bottom: var(--sp-4);
+      }
+      .fei-cta__title {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        font-weight: 300;
+        color: #fff;
+        line-height: 1.2;
+        margin-bottom: var(--sp-6);
+      }
+      .fei-cta__text {
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255,255,255,.78);
+        line-height: 1.75;
+        margin-bottom: var(--sp-10);
+      }
+
+      /* ── Dropdown de Serviços ── */
+      .nav__item { position: relative; }
+      .nav__link--has-dropdown {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font: inherit;
+        padding: 0;
+      }
+      .nav__chevron {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: rotate(45deg) translateY(-2px);
+        transition: transform 220ms;
+        flex-shrink: 0;
+      }
+      .nav__item[aria-expanded="true"] .nav__chevron {
+        transform: rotate(-135deg) translateY(2px);
+      }
+      .nav__dropdown {
+        position: absolute;
+        top: calc(100% + 20px);
+        left: 50%;
+        transform: translateX(-50%) translateY(8px);
+        background: var(--color-brand-primary);
+        min-width: 230px;
+        padding: var(--sp-2) 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 200ms, transform 200ms, visibility 200ms;
+        z-index: 300;
+        box-shadow: 0 16px 48px rgba(0,0,0,.25);
+        pointer-events: none;
+      }
+      .nav__dropdown::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 0;
+        right: 0;
+        height: 20px;
+      }
+      .nav__item:hover .nav__dropdown,
+      .nav__item:focus-within .nav__dropdown,
+      .nav__item[aria-expanded="true"] .nav__dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+      .nav__dropdown-link {
+        display: block;
+        padding: var(--sp-3) var(--sp-6);
+        font-family: var(--font-sans);
+        font-size: .875rem;
+        font-weight: 400;
+        letter-spacing: .02em;
+        color: rgba(255,255,255,.78);
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color 150ms, background 150ms;
+      }
+      .nav__dropdown-link:hover {
+        color: var(--color-brand-secondary);
+        background: rgba(255,255,255,.05);
+      }
+      .nav__dropdown-link--active {
+        color: var(--color-brand-secondary);
+        font-weight: 500;
+      }
+      .nav__link--active {
+        color: var(--color-brand-secondary) !important;
+        opacity: 1 !important;
+      }
+
+      /* ── Mobile menu — Serviços expandido ── */
+      .mobile-menu__section-label {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: .6875rem;
+        font-weight: 600;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: var(--color-brand-secondary);
+        margin-top: var(--sp-6);
+        margin-bottom: var(--sp-2);
+        opacity: .85;
+      }
+      .mobile-menu__link--sub {
+        padding-left: var(--sp-5);
+        font-size: .9375rem;
+        opacity: .75;
+      }
+      .mobile-menu__link--active {
+        color: var(--color-brand-secondary) !important;
+        opacity: 1 !important;
+      }
+      .mobile-menu__rule {
+        border: none;
+        border-top: 1px solid rgba(255,255,255,.1);
+        margin: var(--sp-4) 0 var(--sp-2);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+    <!-- Navegação -->
+    <header class="nav" id="site-nav" role="banner" data-scrolled="true">
+      <div class="nav__container">
+        <a href="index.html" aria-label="A&amp;R Cerimonial — voltar ao início">
+          <img
+            src="img/logo.png"
+            alt="A&amp;R Cerimonial"
+            class="nav__logo-img"
+            height="52"
+            loading="eager"
+          />
+        </a>
+
+        <nav class="nav__links" aria-label="Navegação principal">
+          <a href="index.html" class="nav__link">Início</a>
+
+          <div class="nav__item" aria-expanded="false">
+            <a
+              href="index.html#servicos"
+              class="nav__link nav__link--active nav__link--has-dropdown"
+              aria-haspopup="menu"
+              id="nav-services-trigger"
+            >Serviços <span class="nav__chevron" aria-hidden="true"></span></a>
+
+            <div class="nav__dropdown" role="menu" aria-labelledby="nav-services-trigger">
+              <a href="index.html#servicos"       class="nav__dropdown-link" role="menuitem">Casamentos</a>
+              <a href="cha-de-bebe.html"         class="nav__dropdown-link" role="menuitem">Chá de Bebê</a>
+              <a href="cha-revelacao.html"        class="nav__dropdown-link" role="menuitem">Chá Revelação</a>
+              <a href="batizados.html"            class="nav__dropdown-link" role="menuitem">Batizados</a>
+              <a href="bodas.html"                class="nav__dropdown-link" role="menuitem">Bodas</a>
+              <a href="aniversarios.html"         class="nav__dropdown-link" role="menuitem">Aniversários</a>
+              <a href="eventos-corporativos.html" class="nav__dropdown-link" role="menuitem">Eventos Corporativos</a>
+              <a href="leiloes.html"              class="nav__dropdown-link" role="menuitem">Leilões</a>
+              <a href="feiras-e-exposicoes.html"  class="nav__dropdown-link nav__dropdown-link--active" role="menuitem" aria-current="page">Feiras e Exposições</a>
+            </div>
+          </div>
+
+          <a href="index.html#sobre"       class="nav__link">Sobre</a>
+          <a href="index.html#portfolio"   class="nav__link">Portfólio</a>
+          <a href="index.html#depoimentos" class="nav__link">Depoimentos</a>
+          <a href="index.html#contato"     class="nav__link">Contato</a>
+        </nav>
+
+        <a
+          href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20cerimonial%20para%20Feiras%20e%20Exposi%C3%A7%C3%B5es."
+          class="btn btn--ghost-dark nav__cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Agende uma Conversa</a
+        >
+
+        <button
+          class="nav__hamburger"
+          aria-label="Abrir menu de navegação"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu de navegação"
+    >
+      <button class="mobile-menu__close" aria-label="Fechar menu">&#x2715;</button>
+      <nav class="mobile-menu__nav" aria-label="Menu mobile">
+        <a href="index.html" class="mobile-menu__link">Início</a>
+
+        <span class="mobile-menu__section-label">Serviços</span>
+        <a href="index.html#servicos"       class="mobile-menu__link mobile-menu__link--sub">Casamentos</a>
+        <a href="cha-de-bebe.html"         class="mobile-menu__link mobile-menu__link--sub">Chá de Bebê</a>
+        <a href="cha-revelacao.html"        class="mobile-menu__link mobile-menu__link--sub">Chá Revelação</a>
+        <a href="batizados.html"            class="mobile-menu__link mobile-menu__link--sub">Batizados</a>
+        <a href="bodas.html"                class="mobile-menu__link mobile-menu__link--sub">Bodas</a>
+        <a href="aniversarios.html"         class="mobile-menu__link mobile-menu__link--sub">Aniversários</a>
+        <a href="eventos-corporativos.html" class="mobile-menu__link mobile-menu__link--sub">Eventos Corporativos</a>
+        <a href="leiloes.html"              class="mobile-menu__link mobile-menu__link--sub">Leilões</a>
+        <a href="feiras-e-exposicoes.html"  class="mobile-menu__link mobile-menu__link--sub mobile-menu__link--active">Feiras e Exposições</a>
+
+        <hr class="mobile-menu__rule" aria-hidden="true" />
+        <a href="index.html#sobre"       class="mobile-menu__link">Sobre</a>
+        <a href="index.html#portfolio"   class="mobile-menu__link">Portfólio</a>
+        <a href="index.html#depoimentos" class="mobile-menu__link">Depoimentos</a>
+        <a href="index.html#contato"     class="mobile-menu__link">Contato</a>
+      </nav>
+      <a
+        href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20cerimonial%20para%20Feiras%20e%20Exposi%C3%A7%C3%B5es."
+        class="btn btn--gold mobile-menu__cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Agende uma Conversa</a
+      >
+    </div>
+
+    <main id="main-content">
+
+      <!-- ── 1. HERO ── -->
+      <section class="fei-hero" aria-labelledby="fei-hero-title">
+        <div class="fei-hero__bg" aria-hidden="true"></div>
+        <div class="fei-hero__content">
+          <span class="fei-hero__kicker">Feiras e Exposições</span>
+          <h1 class="fei-hero__title" id="fei-hero-title">
+            Cerimonial para<br />Feiras e Exposições
+          </h1>
+          <p class="fei-hero__subtitle">
+            Organização, recepção e coordenação para eventos realizados<br />com excelência, visibilidade e profissionalismo
+          </p>
+          <div class="fei-hero__cta">
+            <a
+              href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20cerimonial%20para%20Feiras%20e%20Exposi%C3%A7%C3%B5es."
+              class="btn btn--gold"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Agende uma Conversa</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 2. DESCRIÇÃO ── -->
+      <section class="fei-desc" aria-labelledby="fei-desc-title">
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">Presença que gera resultado</span>
+            <h2 class="display-lg" id="fei-desc-title">Seu evento, nossa organização</h2>
+            <div class="gold-divider gold-divider--center" aria-hidden="true"></div>
+          </div>
+
+          <div class="fei-desc__inner reveal">
+            <div class="fei-desc__img">
+              <img
+                src="img%20feiras%20e%20exposicoes/feira-exposicao-site2.jpg"
+                alt="Feira e exposição organizada pela A&amp;R Cerimonial"
+                loading="lazy"
+              />
+            </div>
+            <div class="fei-desc__copy">
+              <p class="fei-desc__text">
+                Uma feira ou exposição bem organizada vai muito além da montagem dos
+                estandes. Ela envolve planejamento criterioso, recepção estruturada,
+                fluxo inteligente de público e suporte operacional contínuo — tudo
+                pensado para que expositores e visitantes vivam uma experiência
+                positiva do momento em que chegam até o encerramento do evento.
+              </p>
+              <p class="fei-desc__text">
+                A A&amp;R Cerimonial atua na organização e coordenação de feiras,
+                exposições e mostras, garantindo que cada etapa seja executada com
+                eficiência e cuidado. Do credenciamento à condução das atividades,
+                nossa equipe cuida da operação para que sua marca e seus expositores
+                se destaquem — sem preocupações logísticas.
+              </p>
+              <blockquote class="fei-desc__highlight">
+                "Uma feira bem organizada é o cenário perfeito<br />para que cada expositor brilhe."
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Faixa editorial ── -->
+      <div class="fei-strip" role="img" aria-label="Ambiente de feira e exposição organizada">
+        <img
+          src="img%20feiras%20e%20exposicoes/feira-exposicao-site3.jpg"
+          alt="Detalhes de feira e exposição organizada pela A&amp;R Cerimonial"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- ── 3. COMO FUNCIONA ── -->
+      <section class="fei-steps" aria-labelledby="fei-steps-title">
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">Nosso processo</span>
+            <h2 class="display-lg" id="fei-steps-title">Como funciona</h2>
+            <div class="gold-divider gold-divider--center" aria-hidden="true"></div>
+            <p class="section-intro__subtitle">
+              Três etapas que transformam a sua proposta em um evento executado com precisão e fluidez.
+            </p>
+          </div>
+
+          <div class="fei-steps__grid">
+
+            <article class="fei-step reveal">
+              <span class="fei-step__number" aria-hidden="true">01</span>
+              <h3 class="fei-step__title">Planejamento do Evento</h3>
+              <p class="fei-step__text">
+                Tudo começa com um alinhamento aprofundado: objetivos da feira ou
+                exposição, perfil dos expositores e do público esperado, formato,
+                layout e cronograma. A partir dessas informações, desenvolvemos
+                um plano operacional detalhado — com mapeamento de áreas, fluxo
+                de pessoas, necessidades de suporte e cronograma de montagem
+                e desmontagem.
+              </p>
+            </article>
+
+            <article class="fei-step reveal">
+              <span class="fei-step__number" aria-hidden="true">02</span>
+              <h3 class="fei-step__title">Organização da Operação</h3>
+              <p class="fei-step__text">
+                Com o planejamento aprovado, assumimos a organização operacional
+                completa: preparação do espaço, sinalização, estrutura de
+                credenciamento, recepção e apoio aos expositores. Cada detalhe
+                é documentado e acompanhado de perto para garantir que a montagem
+                transcorra dentro do prazo e que o evento abra as portas pronto
+                para receber o público.
+              </p>
+            </article>
+
+            <article class="fei-step reveal">
+              <span class="fei-step__number" aria-hidden="true">03</span>
+              <h3 class="fei-step__title">Coordenação e Suporte no Dia</h3>
+              <p class="fei-step__text">
+                Durante o evento, nossa equipe coordena a operação em tempo real —
+                gerenciando o fluxo de entrada, apoiando expositores e visitantes,
+                conduzindo o cronograma de atividades e resolvendo imprevistos com
+                agilidade. Os organizadores têm total suporte para focar na
+                experiência dos presentes e nos resultados do evento.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 4. DIFERENCIAIS ── -->
+      <section class="fei-diff" aria-labelledby="fei-diff-title">
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="script-label">Por que nos escolher</span>
+            <h2 class="display-lg" id="fei-diff-title">Nossos diferenciais</h2>
+            <div class="gold-divider gold-divider--center" aria-hidden="true"></div>
+            <p class="section-intro__subtitle">
+              O que torna a A&amp;R Cerimonial a parceira ideal para feiras e exposições.
+            </p>
+          </div>
+
+          <div class="fei-diff__grid">
+
+            <article class="fei-diff__card reveal">
+              <svg class="fei-diff__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              <h3 class="fei-diff__title">Atendimento personalizado</h3>
+              <p class="fei-diff__text">
+                Cada feira tem sua identidade, seu público e seus objetivos. Criamos
+                soluções sob medida para cada evento — sem fórmulas genéricas —
+                garantindo que a organização reflita com precisão a proposta e a
+                imagem que os realizadores desejam transmitir.
+              </p>
+            </article>
+
+            <article class="fei-diff__card reveal">
+              <svg class="fei-diff__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+              <h3 class="fei-diff__title">Organização profissional</h3>
+              <p class="fei-diff__text">
+                Atuamos com metodologia estruturada em todas as fases do evento.
+                Cronogramas detalhados, gestão de fornecedores, controle de fluxo
+                e comunicação clara — tudo documentado e conduzido com o rigor
+                que um evento de visibilidade exige.
+              </p>
+            </article>
+
+            <article class="fei-diff__card reveal">
+              <svg class="fei-diff__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <h3 class="fei-diff__title">Atenção aos detalhes</h3>
+              <p class="fei-diff__text">
+                Da sinalização ao fluxo de credenciamento, da disposição das áreas
+                comuns ao suporte durante as atividades — cada ponto do evento é
+                mapeado e executado com cuidado, para que a experiência de todos
+                os presentes seja impecável.
+              </p>
+            </article>
+
+            <article class="fei-diff__card reveal">
+              <svg class="fei-diff__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <h3 class="fei-diff__title">Tranquilidade para todos</h3>
+              <p class="fei-diff__text">
+                Organizadores, expositores e visitantes merecem uma experiência
+                sem contratempos. Com a A&amp;R Cerimonial cuidando da operação,
+                cada parte envolvida pode se concentrar no que veio fazer — seja
+                expor, negociar, descobrir ou conectar. A logística fica por
+                nossa conta, do início ao fim.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 5. CALL TO ACTION ── -->
+      <section class="fei-cta" aria-labelledby="fei-cta-title">
+        <div class="fei-cta__bg" aria-hidden="true"></div>
+        <div class="fei-cta__inner">
+          <span class="fei-cta__script reveal">Vamos organizar juntos?</span>
+          <h2 class="fei-cta__title reveal" id="fei-cta-title">
+            Sua feira merece uma<br />execução à altura
+          </h2>
+          <p class="fei-cta__text reveal">
+            Entre em contato com a A&amp;R Cerimonial e descubra como podemos
+            transformar a sua feira ou exposição em um evento organizado, fluido
+            e memorável — para os realizadores, para os expositores e para cada
+            visitante presente. Atendemos Uberaba, região do Triângulo Mineiro
+            e todo o Brasil.
+          </p>
+          <a
+            href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20cerimonial%20para%20Feiras%20e%20Exposi%C3%A7%C3%B5es."
+            class="btn btn--gold reveal"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Agende uma Conversa</a
+          >
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer__grid">
+
+          <div class="footer__brand">
+            <span class="footer__logo" aria-label="A&amp;R Cerimonial">
+              <img
+                src="img/logo.png"
+                alt="A&amp;R Cerimonial"
+                class="footer__logo-img"
+                height="68"
+                loading="lazy"
+              />
+            </span>
+            <p class="footer__tagline">
+              Celebrações extraordinárias,<br />memórias eternas.
+            </p>
+            <div class="footer__social" aria-label="Redes sociais">
+              <a
+                href="https://instagram.com/arcerimoniale_"
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram @arcerimoniale_"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+                </svg>
+              </a>
+              <a
+                href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20A%26R%20Assessoria%20%26%20Cerimonial%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer__col">
+            <span class="footer__col-label">Páginas</span>
+            <nav aria-label="Links do rodapé — páginas">
+              <a href="index.html#sobre"     class="footer__link">Sobre Nós</a>
+              <a href="index.html#servicos"  class="footer__link">Serviços</a>
+              <a href="index.html#portfolio" class="footer__link">Portfólio</a>
+              <a
+                href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+                class="footer__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Contato</a>
+            </nav>
+          </div>
+
+          <div class="footer__col">
+            <span class="footer__col-label">Serviços</span>
+            <div aria-label="Serviços oferecidos">
+              <span class="footer__link footer__link--static">Cerimonial Completo</span>
+              <span class="footer__link footer__link--static">Assessoria de Casamento</span>
+              <span class="footer__link footer__link--static">Decoração &amp; Florais</span>
+              <span class="footer__link footer__link--static">Festas &amp; Eventos</span>
+            </div>
+          </div>
+
+          <div class="footer__col">
+            <span class="footer__col-label">Contato</span>
+            <a
+              href="https://wa.me/5534997089185?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20A%26R%20Assessoria%20%26%20Cerimonial%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+              class="footer__contact-item footer__contact-item--phone"
+              target="_blank"
+              rel="noopener noreferrer"
+            >+55 34 99708-9185</a>
+            <a
+              href="mailto:contatoarcerimonial@gmail.com"
+              class="footer__contact-item footer__contact-item--email"
+            >contatoarcerimonial@gmail.com</a>
+            <span class="footer__contact-item">Uberaba, MG — Brasil</span>
+            <span class="footer__contact-item">Seg–Sáb, 09h–18h</span>
+          </div>
+
+        </div>
+
+        <div class="footer__bottom">
+          <span class="footer__copy">
+            &copy; 2025 A&amp;R Cerimonial &amp; Assessoria. Todos os direitos reservados.
+          </span>
+          <div class="footer__legal">
+            <a href="privacidade.html" class="footer__legal-link">Política de Privacidade</a>
+            <a href="termos.html"      class="footer__legal-link">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      /* Dropdown de Serviços — toggle por clique e teclado */
+      (function () {
+        var item    = document.querySelector('.nav__item');
+        var trigger = item && item.querySelector('.nav__link--has-dropdown');
+        if (!item || !trigger) return;
+
+        function close() { item.setAttribute('aria-expanded', 'false'); }
+        function open()  { item.setAttribute('aria-expanded', 'true');  }
+        function isOpen(){ return item.getAttribute('aria-expanded') === 'true'; }
+
+        trigger.addEventListener('click', function (e) {
+          e.preventDefault();
+          isOpen() ? close() : open();
+        });
+
+        document.addEventListener('click', function (e) {
+          if (!item.contains(e.target)) close();
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && isOpen()) { close(); trigger.focus(); }
+        });
+      })();
+    </script>
+  </body>
+</html>
