@@ -59,6 +59,104 @@
     />
 
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── Dropdown de Serviços ── */
+      .nav__item { position: relative; }
+      .nav__link--has-dropdown {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font: inherit;
+        padding: 0;
+      }
+      .nav__chevron {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: rotate(45deg) translateY(-2px);
+        transition: transform 220ms;
+        flex-shrink: 0;
+      }
+      .nav__item[aria-expanded="true"] .nav__chevron {
+        transform: rotate(-135deg) translateY(2px);
+      }
+      .nav__dropdown {
+        position: absolute;
+        top: calc(100% + 20px);
+        left: 50%;
+        transform: translateX(-50%) translateY(8px);
+        background: var(--color-brand-primary);
+        min-width: 230px;
+        padding: var(--sp-2) 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 200ms, transform 200ms, visibility 200ms;
+        z-index: 300;
+        box-shadow: 0 16px 48px rgba(0,0,0,.25);
+        pointer-events: none;
+      }
+      .nav__dropdown::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 0;
+        right: 0;
+        height: 20px;
+      }
+      .nav__item:hover .nav__dropdown,
+      .nav__item:focus-within .nav__dropdown,
+      .nav__item[aria-expanded="true"] .nav__dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+      .nav__dropdown-link {
+        display: block;
+        padding: var(--sp-3) var(--sp-6);
+        font-family: var(--font-sans);
+        font-size: .875rem;
+        font-weight: 400;
+        letter-spacing: .02em;
+        color: rgba(255,255,255,.78);
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color 150ms, background 150ms;
+      }
+      .nav__dropdown-link:hover {
+        color: var(--color-brand-secondary);
+        background: rgba(255,255,255,.05);
+      }
+
+      /* ── Mobile menu — Serviços expandido ── */
+      .mobile-menu__section-label {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: .6875rem;
+        font-weight: 600;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: var(--color-brand-secondary);
+        margin-top: var(--sp-6);
+        margin-bottom: var(--sp-2);
+        opacity: .85;
+      }
+      .mobile-menu__link--sub {
+        padding-left: var(--sp-5);
+        font-size: .9375rem;
+        opacity: .75;
+      }
+      .mobile-menu__rule {
+        border: none;
+        border-top: 1px solid rgba(255,255,255,.1);
+        margin: var(--sp-4) 0 var(--sp-2);
+      }
+    </style>
   </head>
   <body>
     <!-- Acessibilidade: pula direto para o conteúdo principal -->
@@ -83,7 +181,26 @@
 
         <nav class="nav__links" aria-label="Navegação principal">
           <a href="#inicio" class="nav__link" aria-current="true">Início</a>
-          <a href="#servicos" class="nav__link">Serviços</a>
+          <div class="nav__item" aria-expanded="false">
+            <a
+              href="#servicos"
+              class="nav__link nav__link--has-dropdown"
+              aria-haspopup="menu"
+              id="nav-services-trigger"
+            >Serviços <span class="nav__chevron" aria-hidden="true"></span></a>
+
+            <div class="nav__dropdown" role="menu" aria-labelledby="nav-services-trigger">
+              <a href="#servicos"                class="nav__dropdown-link" role="menuitem">Casamentos</a>
+              <a href="cha-de-bebe.html"         class="nav__dropdown-link" role="menuitem">Chá de Bebê</a>
+              <a href="cha-revelacao.html"        class="nav__dropdown-link" role="menuitem">Chá Revelação</a>
+              <a href="batizados.html"            class="nav__dropdown-link" role="menuitem">Batizados</a>
+              <a href="bodas.html"                class="nav__dropdown-link" role="menuitem">Bodas</a>
+              <a href="aniversarios.html"         class="nav__dropdown-link" role="menuitem">Aniversários</a>
+              <a href="eventos-corporativos.html" class="nav__dropdown-link" role="menuitem">Eventos Corporativos</a>
+              <a href="leiloes.html"              class="nav__dropdown-link" role="menuitem">Leilões</a>
+              <a href="feiras-e-exposicoes.html"  class="nav__dropdown-link" role="menuitem">Feiras e Exposições</a>
+            </div>
+          </div>
           <a href="#sobre" class="nav__link">Sobre</a>
           <a href="#portfolio" class="nav__link">Portfólio</a>
           <a href="#depoimentos" class="nav__link">Depoimentos</a>
@@ -126,7 +243,17 @@
 
       <nav class="mobile-menu__nav" aria-label="Menu mobile">
         <a href="#inicio" class="mobile-menu__link">Início</a>
-        <a href="#servicos" class="mobile-menu__link">Serviços</a>
+        <span class="mobile-menu__section-label">Serviços</span>
+        <a href="#servicos"                class="mobile-menu__link mobile-menu__link--sub">Casamentos</a>
+        <a href="cha-de-bebe.html"         class="mobile-menu__link mobile-menu__link--sub">Chá de Bebê</a>
+        <a href="cha-revelacao.html"        class="mobile-menu__link mobile-menu__link--sub">Chá Revelação</a>
+        <a href="batizados.html"            class="mobile-menu__link mobile-menu__link--sub">Batizados</a>
+        <a href="bodas.html"                class="mobile-menu__link mobile-menu__link--sub">Bodas</a>
+        <a href="aniversarios.html"         class="mobile-menu__link mobile-menu__link--sub">Aniversários</a>
+        <a href="eventos-corporativos.html" class="mobile-menu__link mobile-menu__link--sub">Eventos Corporativos</a>
+        <a href="leiloes.html"              class="mobile-menu__link mobile-menu__link--sub">Leilões</a>
+        <a href="feiras-e-exposicoes.html"  class="mobile-menu__link mobile-menu__link--sub">Feiras e Exposições</a>
+        <hr class="mobile-menu__rule" aria-hidden="true" />
         <a href="#sobre" class="mobile-menu__link">Sobre</a>
         <a href="#portfolio" class="mobile-menu__link">Portfólio</a>
         <a href="#depoimentos" class="mobile-menu__link">Depoimentos</a>
@@ -1790,5 +1917,30 @@
     </a>
 
     <script src="script.js"></script>
+    <script>
+      /* Dropdown de Serviços — toggle por clique e teclado */
+      (function () {
+        var item    = document.querySelector('.nav__item');
+        var trigger = item && item.querySelector('.nav__link--has-dropdown');
+        if (!item || !trigger) return;
+
+        function close() { item.setAttribute('aria-expanded', 'false'); }
+        function open()  { item.setAttribute('aria-expanded', 'true');  }
+        function isOpen(){ return item.getAttribute('aria-expanded') === 'true'; }
+
+        trigger.addEventListener('click', function (e) {
+          e.preventDefault();
+          isOpen() ? close() : open();
+        });
+
+        document.addEventListener('click', function (e) {
+          if (!item.contains(e.target)) close();
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && isOpen()) { close(); trigger.focus(); }
+        });
+      })();
+    </script>
   </body>
 </html>
