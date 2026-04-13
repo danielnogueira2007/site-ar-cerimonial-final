@@ -454,19 +454,18 @@ input, textarea, select { font-family: inherit; }
 
 .mobile-menu__link {
   font-family: var(--font-serif);
-  font-size: clamp(1.625rem,5vw,2.25rem);
+  font-size: clamp(1.0625rem, 3.5vw, 1.25rem);
   font-weight: 300; color: var(--color-text-inverse);
   transition: color var(--t-fast);
 }
 .mobile-menu__link:hover { color: var(--color-brand-secondary); }
 
-/* Sub-itens de Serviços — fonte igual, tamanho reduzido para caber na tela */
+/* Sub-itens de Serviços — mesma fonte e tamanho dos itens principais */
 .mobile-menu__nav .mobile-menu__link--sub {
   font-family: var(--font-serif);
   font-size: clamp(1.0625rem, 3.5vw, 1.25rem);
   font-weight: 300;
   opacity: .82;
-  margin-top: calc(var(--sp-6) * -0.55);
 }
 
 /* ═══════════════════════════════════════════════════════════════
