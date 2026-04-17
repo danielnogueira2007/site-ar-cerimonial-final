@@ -468,6 +468,86 @@ input, textarea, select { font-family: inherit; }
   opacity: .82;
 }
 
+/* ── Planos e Investimento — compartilhado entre páginas de serviço ── */
+.svc-plans {
+  background: var(--color-surface-muted);
+  padding: var(--sp-24) 0;
+}
+.svc-plans__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-6);
+  margin-top: var(--sp-14);
+}
+@media (min-width: 768px) {
+  .svc-plans__grid { grid-template-columns: repeat(3, 1fr); }
+}
+.svc-plans__grid--four {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 600px) {
+  .svc-plans__grid--four { grid-template-columns: repeat(2, 1fr); }
+}
+.svc-plan {
+  background: var(--color-surface-base);
+  border: var(--border-accent);
+  padding: var(--sp-10) var(--sp-8);
+  text-align: center;
+  transition: box-shadow 250ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.svc-plan:hover { box-shadow: 0 8px 32px rgba(30,61,53,.08); }
+.svc-plan--featured {
+  background: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+}
+.svc-plan__name {
+  font-family: var(--font-sans);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--sp-5);
+}
+.svc-plan--featured .svc-plan__name { color: var(--color-brand-secondary); }
+.svc-plan__price {
+  font-family: var(--font-serif);
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 300;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin-bottom: var(--sp-4);
+}
+.svc-plan--featured .svc-plan__price { color: #fff; }
+.svc-plan__divider {
+  width: 32px;
+  height: 1px;
+  background: var(--color-brand-secondary);
+  margin: var(--sp-4) auto;
+  flex-shrink: 0;
+}
+.svc-plan__desc {
+  font-family: var(--font-sans);
+  font-size: .875rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+}
+.svc-plan--featured .svc-plan__desc { color: rgba(255,255,255,.78); }
+.svc-plans__note {
+  font-family: var(--font-sans);
+  font-size: .8125rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-top: var(--sp-10);
+  opacity: .8;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    8. HERO — Seção 1
    Primeira impressão. 100vh com foto, overlay escuro e texto.
