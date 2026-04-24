@@ -1236,20 +1236,56 @@ input, textarea, select { font-family: inherit; }
   gap: var(--sp-8); text-align: center;
 }
 
+.stat {
+  display: flex; flex-direction: column; align-items: center;
+  padding: var(--sp-6) var(--sp-4);
+  border-top: 1px solid rgba(250,248,245,.08);
+}
+
 .stat__number {
   display: block; font-family: var(--font-serif);
   font-size: clamp(3rem,5vw,4.5rem); font-weight: 300;
   color: var(--color-brand-secondary); line-height: 1;
-  margin-bottom: var(--sp-2);
+  margin-bottom: var(--sp-3);
 }
 .stat__label {
   display: block; font-family: var(--font-sans);
-  font-size: .8125rem; font-weight: 500;
+  font-size: .8125rem; font-weight: 600;
   letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(250,248,245,.82);
+  color: rgba(250,248,245,.90);
+  margin-bottom: var(--sp-2);
+}
+.stat__desc {
+  display: block; font-family: var(--font-sans);
+  font-size: .8125rem; font-weight: 300;
+  color: rgba(250,248,245,.50);
+  line-height: 1.55;
+}
+.stat__google-link {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: .75rem; font-weight: 400;
+  color: var(--color-brand-secondary);
+  opacity: .65;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: opacity 200ms, border-color 200ms;
+  margin-top: var(--sp-2);
+}
+.stat__google-link:hover { opacity: 1; border-bottom-color: var(--color-brand-secondary); }
+
+.stats__footnote {
+  font-family: var(--font-sans);
+  font-size: .75rem; font-weight: 300; font-style: italic;
+  color: rgba(250,248,245,.30);
+  text-align: center;
+  margin-top: var(--sp-14);
 }
 
-@media (max-width: 768px) { .stats__grid { grid-template-columns: repeat(2,1fr); gap: var(--sp-12); } }
+@media (max-width: 768px) {
+  .stats__grid { grid-template-columns: repeat(2,1fr); gap: var(--sp-8); }
+  .stat { padding: var(--sp-6) var(--sp-2); border-top: none; border-bottom: 1px solid rgba(250,248,245,.08); }
+}
 
 /* ═══════════════════════════════════════════════════════════════
    14. SOBRE / FUNDADORA — Seção 7
