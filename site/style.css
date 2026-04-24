@@ -1645,12 +1645,10 @@ input, textarea, select { font-family: inherit; }
 
 /* ═══════════════════════════════════════════════════════════════
    16. DEPOIMENTOS — Seção 9
-   Slider horizontal com 3 cards, controls e autoplay.
+   Cards verticais: citação → divisor → atribuição → print slot.
 ═══════════════════════════════════════════════════════════════ */
-/* ── Seção ──────────────────────────────────────────────── */
 .testimonials { background: var(--color-surface-base); padding: var(--sp-28) 0; }
 
-/* ── Grade estática 3 colunas ───────────────────────────── */
 .testimonials__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1665,7 +1663,7 @@ input, textarea, select { font-family: inherit; }
   padding: var(--sp-10) var(--sp-8);
   box-shadow: var(--shadow-subtle);
   display: flex; flex-direction: column;
-  text-align: center; position: relative;
+  position: relative;
   transition: box-shadow var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
 }
 .testimonial-card:hover {
@@ -1674,48 +1672,10 @@ input, textarea, select { font-family: inherit; }
   transform: translateY(-4px);
 }
 
-/* ── Cabeçalho: foto + nome + local + estrelas ──────────── */
-.testimonial-card__header {
-  display: flex; flex-direction: column; align-items: center;
-  margin-bottom: var(--sp-5);
-}
-.testimonial-card__avatar {
-  width: 96px; height: 96px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--color-brand-secondary);
-  background: var(--color-surface-muted);
-  margin-bottom: var(--sp-4);
-}
-.testimonial-card__name {
-  display: block; font-family: var(--font-sans);
-  font-size: .875rem; font-weight: 600;
-  letter-spacing: .12em; text-transform: uppercase;
-  color: var(--color-text-primary); margin-bottom: 4px;
-}
-.testimonial-card__meta {
-  display: block; font-family: var(--font-sans);
-  font-size: .75rem; color: var(--color-text-muted);
-}
-.testimonial-card__stars {
-  color: var(--color-brand-secondary);
-  font-size: .8125rem; letter-spacing: 3px;
-  margin-top: var(--sp-2);
-}
-
-/* ── Divisor dourado ────────────────────────────────────── */
-.testimonial-card__divider {
-  width: 32px; height: 1px;
-  background: var(--color-brand-secondary);
-  margin: 0 auto var(--sp-5);
-  opacity: .6;
-}
-
-/* ── Aspas decorativas — sobrepostas ao início do texto ─── */
+/* ── Aspas decorativas ──────────────────────────────────── */
 .testimonial-card__quote-icon {
   font-family: var(--font-serif); font-size: 72px; line-height: 1;
   color: var(--color-brand-secondary); opacity: .15;
-  text-align: left;
   user-select: none; pointer-events: none;
   margin-bottom: calc(-1 * var(--sp-8));
 }
@@ -1723,23 +1683,73 @@ input, textarea, select { font-family: inherit; }
 /* ── Citação ────────────────────────────────────────────── */
 .testimonial-card__text {
   font-family: var(--font-serif); font-style: italic;
-  font-size: 1.0625rem; font-weight: 400; line-height: 1.75;
+  font-size: 1.0625rem; font-weight: 400; line-height: 1.8;
   color: var(--color-text-secondary);
-  text-align: left;
-  quotes: none; border: none;
+  quotes: none; border: none; margin: 0;
+  padding-top: var(--sp-4); flex: 1;
+}
+
+/* ── Divisor dourado ────────────────────────────────────── */
+.testimonial-card__divider {
+  width: 32px; height: 1px;
+  background: var(--color-brand-secondary);
+  margin: var(--sp-6) 0;
+  opacity: .6; flex-shrink: 0;
+}
+
+/* ── Atribuição: avatar + info ──────────────────────────── */
+.testimonial-card__attribution {
+  display: flex; align-items: center; gap: var(--sp-4);
+}
+
+.testimonial-card__avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-brand-secondary);
+  background: var(--color-surface-muted);
+  flex-shrink: 0;
+}
+
+.testimonial-card__info {
+  display: flex; flex-direction: column; gap: 3px;
+}
+
+.testimonial-card__name {
+  font-family: var(--font-sans); font-size: .875rem; font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.testimonial-card__meta {
+  font-family: var(--font-sans); font-size: .75rem; font-weight: 300;
+  color: var(--color-text-muted); letter-spacing: .03em;
+}
+
+.testimonial-card__stars {
+  color: var(--color-brand-secondary);
+  font-size: .75rem; letter-spacing: 2px;
+}
+
+/* ── Slot para print/screenshot de avaliação ────────────── */
+/* Adicione <img> dentro quando disponível — exibe automaticamente */
+.testimonial-card__print:not(:empty) {
+  margin-top: var(--sp-5);
+  border-top: 1px solid var(--color-border-subtle);
   padding-top: var(--sp-4);
-  flex: 1;
+}
+.testimonial-card__print img {
+  width: 100%; border-radius: 4px; opacity: .92;
 }
 
 /* ── Responsivo ─────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .testimonials__grid { grid-template-columns: 1fr; gap: var(--sp-6); }
+  .testimonials__grid { grid-template-columns: 1fr; max-width: 640px; margin-left: auto; margin-right: auto; gap: var(--sp-6); }
   .testimonial-card { padding: var(--sp-8) var(--sp-7); }
 }
 @media (max-width: 640px) {
+  .testimonials__grid { max-width: 100%; }
   .testimonial-card { padding: var(--sp-8) var(--sp-6); }
   .testimonial-card__text { font-size: 1rem; }
-  .testimonial-card__avatar { width: 80px; height: 80px; }
+  .testimonial-card__avatar { width: 48px; height: 48px; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
